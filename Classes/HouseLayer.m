@@ -11,13 +11,12 @@
 
 @implementation HouseLayer
 
-@synthesize animDuration;
-
 -(id) init{
 	if((self=[super init])){
 		// enable touches
 		self.isTouchEnabled = NO;
-		self.animDuration = 12;
+		GameModel *game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game]; 
+		CGFloat animDuration = (1.0f/game.speed)*200;
 		CCSprite *background =[CCSprite spriteWithFile:@"home_town.png"];
 		CCSprite *background1 =[CCSprite spriteWithFile:@"home_town.png"];
 		background.position = ccp(background.contentSize.width/2,background.contentSize.height/2);

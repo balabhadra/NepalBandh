@@ -11,18 +11,26 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 #import "GLES-Render.h"
+#import "MyContactListener.h"
+#import "GameModel.h"
+#import "NepalBandhAppDelegate.h"
+
+#define SWIPE_DRAG_MIN 20
 
 // HelloWorld Layer
 @interface HelloWorld : CCLayer
 {
 	b2World* world;
 	GLESDebugDraw *m_debugDraw;
+	MyContactListener *_contactListener;
+	CGPoint touchLocation;
+	GameModel *game;
+	BOOL recentCollectableSpawn;
+	BOOL recentStaticEnemySpawn;
+	BOOL recentMovingEnemySpawn;
 }
 
-// returns a Scene that contains the HelloWorld as the only child
-+(id) scene;
 
-// adds a new sprite at a given coordinate
--(void) addNewSpriteWithCoords:(CGPoint)p;
+
 
 @end

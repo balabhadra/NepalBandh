@@ -9,11 +9,11 @@
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.001</real>
+		<real>0.1</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.008</real>
+		<real>0.2</real>
 		<key>Speed</key>
-		<integer>15</integer>
+		<integer>10</integer>
 	</dict>
 	<key>1 - 2</key>
 	<dict>
@@ -22,50 +22,50 @@
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.001</real>
+		<real>0.12</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.007</real>
+		<real>0.22</real>
 		<key>Speed</key>
-		<integer>17</integer>
+		<integer>13</integer>
 	</dict>
 	<key>1 - 3</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>75</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<integer>0</integer>
+		<real>0.05</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.001</real>
+		<real>0.12</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.008</real>
+		<real>0.24</real>
 		<key>Speed</key>
-		<integer>15</integer>
+		<integer>16</integer>
 	</dict>
 	<key>1 - 4</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>90</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<integer>0</integer>
+		<real>0.08</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.001</real>
+		<real>0.012</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.008</real>
+		<real>0.026</real>
 		<key>Speed</key>
-		<integer>15</integer>
+		<integer>18</integer>
 	</dict>
 	<key>1 - 5</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>90</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<integer>0</integer>
+		<real>0.08</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.001</real>
+		<real>0.012</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.008</real>
+		<real>0.026</real>
 		<key>Speed</key>
-		<integer>15</integer>
+		<integer>20</integer>
 	</dict>
 </dict>
 </plist>

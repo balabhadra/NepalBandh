@@ -207,8 +207,6 @@
 		[self addChild:helpText z:0 tag:2];
 		// Add icons 
 		
-		CCSprite *
-		
 		// Buttons
 		[self removeChild:[self getChildByTag:5] cleanup:YES];
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"<<" fontName:@"Marker Felt" fontSize:35];

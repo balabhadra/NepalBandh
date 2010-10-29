@@ -61,7 +61,7 @@ typedef enum Collectables{
 @property (nonatomic, assign) CGFloat movingEnemyGenerationProbability;
 
 -(void) reset;
--(void) nextLevel;
+-(BOOL) nextLevel;
 -(Enemies)getMovingEnemyType;
 -(Enemies)getStaticEnemyType;
 -(Collectables)getCollectableType;
