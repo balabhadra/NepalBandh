@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameModel.h"
+
 #define MENU_ITEM_SCALE_FACTOR 0.7f
 
 @interface MenuLayer : CCLayer {

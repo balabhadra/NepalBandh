@@ -45,7 +45,7 @@
 		CCSprite *menuSpriteSelected6 = [CCSprite spriteWithSpriteFrameName:@"aboutSelected.png"];
 		
 		CCMenuItem *item0 = nil;
-		if([[NSUserDefaults standardUserDefaults] dataForKey:@"savedLevel"]){
+		if([[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
 			item0 = [CCMenuItemSprite itemFromNormalSprite:menuSprite0 
 											selectedSprite:menuSpriteSelected0 target:self selector:@selector(onContinue:)];
 			item0.scale = MENU_ITEM_SCALE_FACTOR;
@@ -68,7 +68,8 @@
 		
 		
 		CCMenu *menu;
-		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"SavedData"]){
+
+		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
 			menu = [CCMenu menuWithItems:item1, item2, item3, item4, item6, nil];
 		}
 		else {
@@ -88,7 +89,6 @@
 
 //clicked on yes when confirmation is shown for starting a new game if a previous game is saved. Starts a new game.
 - (void)play{
-
 	CCScene *playScene = [CCScene node];
 	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
 	HouseLayer *houseLayer = [HouseLayer node];
@@ -133,7 +133,7 @@
 - (void)onPlay:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-	if([[NSUserDefaults standardUserDefaults] dataForKey:@"savedLevel"]){
+	if([[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
 		AlertLayer *alert = [[[AlertLayer alloc] initWithMessage:@"Starting a new game will delete saved progress. Do you want to continue?"
 														 options:[NSArray arrayWithObjects:@"Yes",@"No",nil] target:self selector:@selector(optionSelected:)] autorelease];
 		[self.parent addChild:alert z:1 tag:1];

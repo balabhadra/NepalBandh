@@ -161,6 +161,8 @@
 		9AA0B321127A96D9007A0377 /* ScrollableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B31E127A96D9007A0377 /* ScrollableLayer.m */; };
 		9AA0B322127A96D9007A0377 /* AlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B320127A96D9007A0377 /* AlertLayer.m */; };
 		9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B385127A9D4B007A0377 /* AboutLayer.m */; };
+		9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B3FA127ABEE5007A0377 /* GameModel.m */; };
+		9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B413127AC6E6007A0377 /* LevelInfo.plist */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -513,6 +515,9 @@
 		9AA0B320127A96D9007A0377 /* AlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertLayer.m; sourceTree = "<group>"; };
 		9AA0B384127A9D4B007A0377 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
 		9AA0B385127A9D4B007A0377 /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
+		9AA0B3F9127ABEE5007A0377 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		9AA0B3FA127ABEE5007A0377 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		9AA0B413127AC6E6007A0377 /* LevelInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelInfo.plist; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -827,6 +832,8 @@
 				E0F81063120A17DF005866B8 /* RootViewController.m */,
 				1F3B9A2C0EF2145700286867 /* NepalBandhAppDelegate.h */,
 				1F3B9A2B0EF2145700286867 /* NepalBandhAppDelegate.mm */,
+				9AA0B3F9127ABEE5007A0377 /* GameModel.h */,
+				9AA0B3FA127ABEE5007A0377 /* GameModel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1073,6 +1080,7 @@
 				50F4144410692EE7002A0D5E /* Default.png */,
 				50F4144510692EE7002A0D5E /* fps_images.png */,
 				50F4144710692EE7002A0D5E /* Info.plist */,
+				9AA0B413127AC6E6007A0377 /* LevelInfo.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1558,6 +1566,7 @@
 				22A0E590127ACEE80016AEFB /* clock.png in Resources */,
 				22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */,
 				22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */,
+				9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1582,6 +1591,7 @@
 				9AA0B321127A96D9007A0377 /* ScrollableLayer.m in Sources */,
 				9AA0B322127A96D9007A0377 /* AlertLayer.m in Sources */,
 				9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */,
+				9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
