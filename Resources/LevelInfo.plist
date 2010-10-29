@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1 - 1</key>
+	<dict>
+		<key>Duration</key>
+		<integer>60</integer>
+		<key>MovingEnemyGenerationProbability</key>
+		<integer>0</integer>
+		<key>CollectableGenerationProbability</key>
+		<real>0.001</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.008</real>
+		<key>Speed</key>
+		<integer>15</integer>
+	</dict>
+	<key>1 - 2</key>
+	<dict>
+		<key>Duration</key>
+		<integer>75</integer>
+		<key>MovingEnemyGenerationProbability</key>
+		<integer>0</integer>
+		<key>CollectableGenerationProbability</key>
+		<real>0.001</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.007</real>
+		<key>Speed</key>
+		<integer>17</integer>
+	</dict>
+	<key>1 - 3</key>
+	<dict>
+		<key>Duration</key>
+		<integer>60</integer>
+		<key>MovingEnemyGenerationProbability</key>
+		<integer>0</integer>
+		<key>CollectableGenerationProbability</key>
+		<real>0.001</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.008</real>
+		<key>Speed</key>
+		<integer>15</integer>
+	</dict>
+	<key>1 - 4</key>
+	<dict>
+		<key>Duration</key>
+		<integer>60</integer>
+		<key>MovingEnemyGenerationProbability</key>
+		<integer>0</integer>
+		<key>CollectableGenerationProbability</key>
+		<real>0.001</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.008</real>
+		<key>Speed</key>
+		<integer>15</integer>
+	</dict>
+	<key>1 - 5</key>
+	<dict>
+		<key>Duration</key>
+		<integer>60</integer>
+		<key>MovingEnemyGenerationProbability</key>
+		<integer>0</integer>
+		<key>CollectableGenerationProbability</key>
+		<real>0.001</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.008</real>
+		<key>Speed</key>
+		<integer>15</integer>
+	</dict>
+</dict>
+</plist>

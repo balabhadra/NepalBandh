@@ -16,7 +16,7 @@
 
 @implementation NepalBandhAppDelegate
 
-@synthesize window;
+@synthesize window, game;
 
 - (void) removeStartupFlicker
 {
@@ -112,6 +112,15 @@
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];	
 	
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"GameModel"]) {
+		NSData *modelData = [[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"];
+		game = (GameModel *)[NSKeyedUnarchiver unarchiveObjectWithData:modelData];
+	}
+	else {
+		self.game = [[[GameModel alloc] init] autorelease];
+	}
+	[game nextLevel];
+	[game nextLevel];
 	CCScene *scene = [CCScene node];
 	MenuLayer *mainMenu = [MenuLayer node];
 	[scene addChild:mainMenu z:0 tag:0];
@@ -159,6 +168,7 @@
 - (void)dealloc {
 	[[CCDirector sharedDirector] release];
 	[window release];
+	[game release];
 	[super dealloc];
 }
 
