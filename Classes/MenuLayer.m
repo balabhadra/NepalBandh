@@ -14,6 +14,8 @@
 #import "HUDLayer.h"
 #import "CollectablesLayer.h"
 #import "HeroLayer.h"
+#import "AboutLayer.h"
+#import "HelpLayer.h"
 
 @implementation MenuLayer
 //setup view for main menu
@@ -66,7 +68,6 @@
 		item4.scale = MENU_ITEM_SCALE_FACTOR;
 		item6.scale = MENU_ITEM_SCALE_FACTOR;
 		
-		
 		CCMenu *menu;
 
 		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
@@ -79,7 +80,6 @@
 		[menu alignItemsVerticallyWithPadding:2.5];
 		[self addChild:menu z:0 tag:0];
 		
-
 		//if([GameResource sharedResource].isMusicOn && ![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying])
 //			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[GameResource sharedResource].themeSound];
 		
@@ -174,24 +174,24 @@
 - (void)onHelp:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *helpScene = [CCScene node];
-//	HelpLayer *helpLayer = [HelpLayer node];
+	CCScene *helpScene = [CCScene node];
+	HelpLayer *helpLayer = [HelpLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];
 //	[helpScene addChild:background z:0 tag:1];
-//	[helpScene addChild:helpLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:helpScene];
+	[helpScene addChild:helpLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:helpScene];
 }
 
 //clicked on about menu item. Shows about page.
 - (void)onAbout:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *aboutScene = [CCScene node];
-//	AboutLayer *aboutLayer = [AboutLayer node];
+	CCScene *aboutScene = [CCScene node];
+	AboutLayer *aboutLayer = [AboutLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];
 //	[aboutScene addChild:background z:0 tag:1];
-//	[aboutScene addChild:aboutLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:aboutScene];
+	[aboutScene addChild:aboutLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:aboutScene];
 }
 
 //confirmation delegate
@@ -211,7 +211,6 @@
 //		default:
 //			break;
 //	}
-	
 }
 
 

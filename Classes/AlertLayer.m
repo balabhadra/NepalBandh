@@ -19,7 +19,7 @@
 		CCMenu *menu = nil;
 		for(NSString * menuName in options){
 			CCLabelTTF *label = [CCLabelTTF labelWithString:menuName fontName:@"Marker Felt" fontSize:30];
-			CCMenuItemLabel *item = [CCMenuItemLabel itemWithLabel:(CCNode *)label target:self selector:@selector(itemClicked:)];
+			CCMenuItemLabel *item = [CCMenuItemLabel itemWithLabel:label target:self selector:@selector(itemClicked:)];
 			item.tag = [options indexOfObject:menuName];
 			if(!menu)
 				menu = [CCMenu menuWithItems:item,nil];

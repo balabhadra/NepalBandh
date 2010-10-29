@@ -18,14 +18,13 @@
 		previousY = 0.0f;
 		YVelocity = 0.0f;
 		self.contentHeight = 150;
-		
+
 		self.anchorPoint = ccp( 240, 160 );
 		self.position = ccp( 0, 0 );
 		[self schedule:@selector(moveTick:) interval:0.02f];
 		
 	}
-    return self;
-	
+    return self;	
 }	
 
 #pragma mark Scheduled Methods
