@@ -139,6 +139,16 @@
 		50F4144910692EE7002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144410692EE7002A0D5E /* Default.png */; };
 		50F4144A10692EE7002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144510692EE7002A0D5E /* fps_images.png */; };
 		50F4144B10692EE7002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144610692EE7002A0D5E /* Icon.png */; };
+		9AA0B2D1127A87E3007A0377 /* home_town.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2CE127A87E3007A0377 /* home_town.png */; };
+		9AA0B2D2127A87E3007A0377 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2CF127A87E3007A0377 /* Background.png */; };
+		9AA0B2D3127A87E3007A0377 /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2D0127A87E3007A0377 /* hud.png */; };
+		9AA0B2D5127A8955007A0377 /* heart_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2D4127A8955007A0377 /* heart_small.png */; };
+		9AA0B2D8127A8991007A0377 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2D7127A8991007A0377 /* BackgroundLayer.m */; };
+		9AA0B2DB127A899F007A0377 /* HouseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2DA127A899F007A0377 /* HouseLayer.m */; };
+		9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2DD127A89AA007A0377 /* HUDLayer.m */; };
+		9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */; };
+		9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E3127A89E0007A0377 /* HeroLayer.m */; };
+		9AA0B2E8127A8A2B007A0377 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -465,6 +475,22 @@
 		50F4144510692EE7002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F4144610692EE7002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F4144710692EE7002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AA0B2CE127A87E3007A0377 /* home_town.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_town.png; sourceTree = "<group>"; };
+		9AA0B2CF127A87E3007A0377 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		9AA0B2D0127A87E3007A0377 /* hud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud.png; sourceTree = "<group>"; };
+		9AA0B2D4127A8955007A0377 /* heart_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_small.png; sourceTree = "<group>"; };
+		9AA0B2D6127A8991007A0377 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		9AA0B2D7127A8991007A0377 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
+		9AA0B2D9127A899F007A0377 /* HouseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseLayer.h; sourceTree = "<group>"; };
+		9AA0B2DA127A899F007A0377 /* HouseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseLayer.m; sourceTree = "<group>"; };
+		9AA0B2DC127A89AA007A0377 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		9AA0B2DD127A89AA007A0377 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		9AA0B2DF127A89C6007A0377 /* CollectablesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectablesLayer.h; sourceTree = "<group>"; };
+		9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectablesLayer.m; sourceTree = "<group>"; };
+		9AA0B2E2127A89E0007A0377 /* HeroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroLayer.h; sourceTree = "<group>"; };
+		9AA0B2E3127A89E0007A0377 /* HeroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroLayer.m; sourceTree = "<group>"; };
+		9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -738,6 +764,8 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9AA0B2E9127A8A30007A0377 /* Other Layers */,
+				9AA0B2E5127A89F1007A0377 /* Game Layers */,
 				E0F81061120A17DF005866B8 /* GameConfig.h */,
 				50F4143710692D7D002A0D5E /* GLES-Render.h */,
 				50F4143810692D7D002A0D5E /* GLES-Render.mm */,
@@ -985,6 +1013,10 @@
 		50F4144210692EE7002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9AA0B2CE127A87E3007A0377 /* home_town.png */,
+				9AA0B2CF127A87E3007A0377 /* Background.png */,
+				9AA0B2D4127A8955007A0377 /* heart_small.png */,
+				9AA0B2D0127A87E3007A0377 /* hud.png */,
 				E02BBA10126CC29D006E46A2 /* iTunesArtwork */,
 				E02BB53E126CA5DA006E46A2 /* Icon@2x.png */,
 				E02BB53F126CA5DA006E46A2 /* Icon-Small@2x.png */,
@@ -998,6 +1030,32 @@
 				50F4144710692EE7002A0D5E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9AA0B2E5127A89F1007A0377 /* Game Layers */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0B2D6127A8991007A0377 /* BackgroundLayer.h */,
+				9AA0B2D7127A8991007A0377 /* BackgroundLayer.m */,
+				9AA0B2D9127A899F007A0377 /* HouseLayer.h */,
+				9AA0B2DA127A899F007A0377 /* HouseLayer.m */,
+				9AA0B2DC127A89AA007A0377 /* HUDLayer.h */,
+				9AA0B2DD127A89AA007A0377 /* HUDLayer.m */,
+				9AA0B2DF127A89C6007A0377 /* CollectablesLayer.h */,
+				9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */,
+				9AA0B2E2127A89E0007A0377 /* HeroLayer.h */,
+				9AA0B2E3127A89E0007A0377 /* HeroLayer.m */,
+			);
+			name = "Game Layers";
+			sourceTree = "<group>";
+		};
+		9AA0B2E9127A8A30007A0377 /* Other Layers */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */,
+				9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */,
+			);
+			name = "Other Layers";
 			sourceTree = "<group>";
 		};
 		E02BB8BF126CC28A006E46A2 /* cocos2d */ = {
@@ -1441,6 +1499,10 @@
 				E02BB547126CA5DA006E46A2 /* Icon-Small-50.png in Resources */,
 				E02BB548126CA5DA006E46A2 /* Icon-72.png in Resources */,
 				E02BBA11126CC29D006E46A2 /* iTunesArtwork in Resources */,
+				9AA0B2D1127A87E3007A0377 /* home_town.png in Resources */,
+				9AA0B2D2127A87E3007A0377 /* Background.png in Resources */,
+				9AA0B2D3127A87E3007A0377 /* hud.png in Resources */,
+				9AA0B2D5127A8955007A0377 /* heart_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1456,6 +1518,12 @@
 				506EDC31102F528A00A389B3 /* HelloWorldScene.mm in Sources */,
 				50F4143910692D7D002A0D5E /* GLES-Render.mm in Sources */,
 				E0F81064120A17DF005866B8 /* RootViewController.m in Sources */,
+				9AA0B2D8127A8991007A0377 /* BackgroundLayer.m in Sources */,
+				9AA0B2DB127A899F007A0377 /* HouseLayer.m in Sources */,
+				9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */,
+				9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */,
+				9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */,
+				9AA0B2E8127A8A2B007A0377 /* MenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
