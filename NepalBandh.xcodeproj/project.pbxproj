@@ -729,6 +729,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		22A0E416127AA1380016AEFB /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0B31B127A965D007A0377 /* menuBackground.png */,
+				9AA0B310127A91D7007A0377 /* menuSelected.png */,
+				9AA0B311127A91D7007A0377 /* menuSelected.plist */,
+				9AA0B312127A91D7007A0377 /* menu.plist */,
+				9AA0B313127A91D7007A0377 /* menu.png */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		22A0E420127AA1940016AEFB /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0B2CE127A87E3007A0377 /* home_town.png */,
+				9AA0B2CF127A87E3007A0377 /* Background.png */,
+				9AA0B2D4127A8955007A0377 /* heart_small.png */,
+				9AA0B2D0127A87E3007A0377 /* hud.png */,
+			);
+			name = GameView;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,16 +1045,9 @@
 		50F4144210692EE7002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9AA0B31B127A965D007A0377 /* menuBackground.png */,
+				22A0E416127AA1380016AEFB /* MainMenu */,
+				22A0E420127AA1940016AEFB /* GameView */,
 				9AA0B318127A9548007A0377 /* Icon.png */,
-				9AA0B2CE127A87E3007A0377 /* home_town.png */,
-				9AA0B2CF127A87E3007A0377 /* Background.png */,
-				9AA0B310127A91D7007A0377 /* menuSelected.png */,
-				9AA0B311127A91D7007A0377 /* menuSelected.plist */,
-				9AA0B312127A91D7007A0377 /* menu.plist */,
-				9AA0B313127A91D7007A0377 /* menu.png */,
-				9AA0B2D4127A8955007A0377 /* heart_small.png */,
-				9AA0B2D0127A87E3007A0377 /* hud.png */,
 				E02BBA10126CC29D006E46A2 /* iTunesArtwork */,
 				50F4144310692EE7002A0D5E /* blocks.png */,
 				50F4144410692EE7002A0D5E /* Default.png */,

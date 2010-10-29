@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
-
-@interface HouseLayer : NSObject {
+@interface HouseLayer : CCLayer {
 
 }
 

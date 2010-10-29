@@ -7,7 +7,13 @@
 //
 
 #import "MenuLayer.h"
+#import "AlertLayer.h"
 #import "SimpleAudioEngine.h"
+#import "BackgroundLayer.h"
+#import "HouseLayer.h"
+#import "HUDLayer.h"
+#import "CollectablesLayer.h"
+#import "HeroLayer.h"
 
 @implementation MenuLayer
 //setup view for main menu
@@ -82,18 +88,21 @@
 
 //clicked on yes when confirmation is shown for starting a new game if a previous game is saved. Starts a new game.
 - (void)play{
-//	[FlurryAPI logEvent: @"Play"];
-//	CCScene *playScene = [CCScene node];
-//	BoardMatrixLayer *boardMatrixLayer = [BoardMatrixLayer node];
-//	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-//	PearlLayer *pearlLayer = [[[PearlLayer alloc] initWithBoardMatrix:boardMatrixLayer.boardMatrix] autorelease];
-//	PauseLayer *pauseLayer = [PauseLayer node];
-//	pearlLayer.backgroundLayer = backgroundLayer;
-//	[playScene addChild:backgroundLayer z:0 tag:0];
-//	[playScene addChild:boardMatrixLayer z:1 tag:1];
-//	[playScene addChild:pearlLayer z:2 tag:2];
-//	[playScene addChild:pauseLayer z:3 tag:3];
-//	[[CCDirector sharedDirector] replaceScene:playScene];
+
+	CCScene *playScene = [CCScene node];
+	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+	HouseLayer *houseLayer = [HouseLayer node];
+	HUDLayer *hudLayer = [HUDLayer node];
+	CollectablesLayer *collectablesLayer = [CollectablesLayer node];
+	HeroLayer *heroLayer = [HeroLayer node];
+
+	[playScene addChild:backgroundLayer z:0 tag:0];
+	[playScene addChild:houseLayer z:1 tag:1];
+	[playScene addChild:collectablesLayer z:2 tag:2];
+	[playScene addChild:heroLayer z:3 tag:3];
+	[playScene addChild:hudLayer z:4 tag:4];
+	
+	[[CCDirector sharedDirector] replaceScene:playScene];
 //	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
@@ -124,16 +133,16 @@
 - (void)onPlay:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	if([[NSUserDefaults standardUserDefaults] dataForKey:@"boardMatrix"]){
-//		AlertLayer *alert = [[[AlertLayer alloc] initWithMessage:@"Starting a new game will delete saved progress. Do you want to continue?"
-//														 options:[NSArray arrayWithObjects:@"Yes",@"No",nil] target:self selector:@selector(optionSelected:)] autorelease];
-//		[self.parent addChild:alert z:1 tag:1];
-//		[(CCLayer *)[self getChildByTag:0] setIsTouchEnabled:NO];
-//		[(CCLayer *)[self getChildByTag:0] setVisible:NO];
-//	}
-//	else {
-//		[self play];
-//	}
+	if([[NSUserDefaults standardUserDefaults] dataForKey:@"savedLevel"]){
+		AlertLayer *alert = [[[AlertLayer alloc] initWithMessage:@"Starting a new game will delete saved progress. Do you want to continue?"
+														 options:[NSArray arrayWithObjects:@"Yes",@"No",nil] target:self selector:@selector(optionSelected:)] autorelease];
+		[self.parent addChild:alert z:1 tag:1];
+		[(CCLayer *)[self getChildByTag:0] setIsTouchEnabled:NO];
+		[(CCLayer *)[self getChildByTag:0] setVisible:NO];
+	}
+	else {
+		[self play];
+	}
 	
 }
 
