@@ -132,6 +132,12 @@
 		helpText.position = ccp(winSize.width / 2, winSize.height / 2 - 65);
 		[self addChild:helpText z:0 tag:2];
 		
+		// Remove sprites
+		[self removeChild:[self getChildByTag:6] cleanup:YES];
+		[self removeChild:[self getChildByTag:7] cleanup:YES];
+		[self removeChild:[self getChildByTag:8] cleanup:YES];		
+		[self removeChild:[self getChildByTag:9] cleanup:YES];				
+		
 		//Button System
 		[self removeChild:[self getChildByTag:5] cleanup:YES];
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"<<" fontName:@"Marker Felt" fontSize:35];
@@ -190,7 +196,7 @@
 		CCMenu *readHelp = [CCMenu menuWithItems:previousItem, backItem, nextItem, nil];
 		readHelp.position = ccp (winSize.width / 2, label.contentSize.height + 10);
 		[readHelp alignItemsHorizontallyWithPadding:350 / 3];
-		[self addChild:readHelp z:1 tag:5 ];
+		[self addChild:readHelp z:1 tag:5];
 		
 	}
 	
@@ -205,7 +211,28 @@
 												  fontName:@"Marker Felt" fontSize:20];
 		helpText.position = ccp(winSize.width / 2 + 20, winSize.height / 2 - 65);
 		[self addChild:helpText z:0 tag:2];
+
 		// Add icons 
+		int spaceOffset = 100;
+		int margin = 15;
+		int leftOffset = 25;
+		
+		CCSprite *lifeBonus = [CCSprite spriteWithFile:@"bonus_life.png"];
+		lifeBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset, winSize.height / 2 - 25);
+		[self addChild:lifeBonus z:1 tag:6];
+		
+		CCSprite *shieldBonus = [CCSprite spriteWithFile:@"bonus_shield.png"];
+		shieldBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + 2 * spaceOffset - 15, winSize.height / 2 - 25);
+		[self addChild:shieldBonus z: 1 tag:7];
+		
+		CCSprite *speedBonus = [CCSprite spriteWithFile:@"bonus_speed.png"];
+		speedBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + 3 * spaceOffset - 15, winSize.height / 2 - 25);
+		[self addChild:speedBonus z: 1 tag:8];
+
+		CCSprite *timeBonus = [CCSprite spriteWithFile:@"bonus_time.png"];
+		timeBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + spaceOffset, winSize.height / 2 - 25);
+		[self addChild:timeBonus z: 1 tag:9];
+		
 		
 		// Buttons
 		[self removeChild:[self getChildByTag:5] cleanup:YES];
