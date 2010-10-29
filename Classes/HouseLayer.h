@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface HouseLayer : CCLayer {
-
+	CGFloat animDuration;
 }
-
+@property (nonatomic, assign) CGFloat animDuration;
 @end
