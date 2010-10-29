@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "HelloWorldScene.h"
 #import "RootViewController.h"
+#import "MenuLayer.h"
 
 @implementation NepalBandhAppDelegate
 
@@ -109,7 +110,13 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];		
+	//[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];	
+	
+	CCScene *scene = [CCScene node];
+	MenuLayer *mainMenu = [MenuLayer node];
+	[scene addChild:mainMenu z:0 tag:0];
+	[[CCDirector sharedDirector] runWithScene: scene];
+	
 }
 
 

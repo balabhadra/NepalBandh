@@ -1,5 +1,5 @@
 //
-//  MenuLayer.h
+//  AboutLayer.h
 //  NepalBandh
 //
 //  Created by Bala Bhadra Maharjan on 10/29/10.
@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "cocos2d.h"
-#define MENU_ITEM_SCALE_FACTOR 0.7f
 
-@interface MenuLayer : CCLayer {
- CGSize screenSize;
+
+@interface AboutLayer : NSObject {
+
 }
 
 @end
