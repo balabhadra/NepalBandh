@@ -151,7 +151,7 @@
 		9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2DD127A89AA007A0377 /* HUDLayer.m */; };
 		9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */; };
 		9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E3127A89E0007A0377 /* HeroLayer.m */; };
-		9AA0B2E8127A8A2B007A0377 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */; };
+		9AA0B2E8127A8A2B007A0377 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */; };
 		9AA0B314127A91D7007A0377 /* menuSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B310127A91D7007A0377 /* menuSelected.png */; };
 		9AA0B315127A91D7007A0377 /* menuSelected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B311127A91D7007A0377 /* menuSelected.plist */; };
 		9AA0B316127A91D7007A0377 /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B312127A91D7007A0377 /* menu.plist */; };
@@ -163,6 +163,11 @@
 		9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B385127A9D4B007A0377 /* AboutLayer.m */; };
 		9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B3FA127ABEE5007A0377 /* GameModel.m */; };
 		9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B413127AC6E6007A0377 /* LevelInfo.plist */; };
+		9AA0B48C127AE436007A0377 /* bonus_life.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B489127AE436007A0377 /* bonus_life.png */; };
+		9AA0B48D127AE436007A0377 /* bonus_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B48A127AE436007A0377 /* bonus_speed.png */; };
+		9AA0B48E127AE436007A0377 /* bonus_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B48B127AE436007A0377 /* bonus_time.png */; };
+		9AA0B491127AE459007A0377 /* bonus_shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B490127AE459007A0377 /* bonus_shield.png */; };
+		9AA0B4FF127AEF63007A0377 /* MyContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B4FE127AEF63007A0377 /* MyContactListener.mm */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -502,7 +507,7 @@
 		9AA0B2E2127A89E0007A0377 /* HeroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroLayer.h; sourceTree = "<group>"; };
 		9AA0B2E3127A89E0007A0377 /* HeroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroLayer.m; sourceTree = "<group>"; };
 		9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
-		9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
 		9AA0B310127A91D7007A0377 /* menuSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuSelected.png; sourceTree = "<group>"; };
 		9AA0B311127A91D7007A0377 /* menuSelected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuSelected.plist; sourceTree = "<group>"; };
 		9AA0B312127A91D7007A0377 /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -518,6 +523,12 @@
 		9AA0B3F9127ABEE5007A0377 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		9AA0B3FA127ABEE5007A0377 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		9AA0B413127AC6E6007A0377 /* LevelInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelInfo.plist; sourceTree = "<group>"; };
+		9AA0B489127AE436007A0377 /* bonus_life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_life.png; sourceTree = "<group>"; };
+		9AA0B48A127AE436007A0377 /* bonus_speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_speed.png; sourceTree = "<group>"; };
+		9AA0B48B127AE436007A0377 /* bonus_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_time.png; sourceTree = "<group>"; };
+		9AA0B490127AE459007A0377 /* bonus_shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_shield.png; sourceTree = "<group>"; };
+		9AA0B4FD127AEF63007A0377 /* MyContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContactListener.h; sourceTree = "<group>"; };
+		9AA0B4FE127AEF63007A0377 /* MyContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyContactListener.mm; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -757,6 +768,10 @@
 		22A0E420127AA1940016AEFB /* GameView */ = {
 			isa = PBXGroup;
 			children = (
+				9AA0B490127AE459007A0377 /* bonus_shield.png */,
+				9AA0B489127AE436007A0377 /* bonus_life.png */,
+				9AA0B48A127AE436007A0377 /* bonus_speed.png */,
+				9AA0B48B127AE436007A0377 /* bonus_time.png */,
 				22A0E58B127ACE2A0016AEFB /* HUD */,
 				9AA0B2CE127A87E3007A0377 /* home_town.png */,
 				9AA0B2CF127A87E3007A0377 /* Background.png */,
@@ -826,6 +841,8 @@
 				E0F81061120A17DF005866B8 /* GameConfig.h */,
 				50F4143710692D7D002A0D5E /* GLES-Render.h */,
 				50F4143810692D7D002A0D5E /* GLES-Render.mm */,
+				9AA0B4FD127AEF63007A0377 /* MyContactListener.h */,
+				9AA0B4FE127AEF63007A0377 /* MyContactListener.mm */,
 				506EDC2F102F528A00A389B3 /* HelloWorldScene.h */,
 				506EDC30102F528A00A389B3 /* HelloWorldScene.mm */,
 				E0F81062120A17DF005866B8 /* RootViewController.h */,
@@ -1110,7 +1127,7 @@
 				9AA0B31F127A96D9007A0377 /* AlertLayer.h */,
 				9AA0B320127A96D9007A0377 /* AlertLayer.m */,
 				9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */,
-				9AA0B2E7127A8A2B007A0377 /* MenuLayer.m */,
+				9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */,
 				9AA0B384127A9D4B007A0377 /* AboutLayer.h */,
 				9AA0B385127A9D4B007A0377 /* AboutLayer.m */,
 			);
@@ -1567,6 +1584,10 @@
 				22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */,
 				22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */,
 				9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */,
+				9AA0B48C127AE436007A0377 /* bonus_life.png in Resources */,
+				9AA0B48D127AE436007A0377 /* bonus_speed.png in Resources */,
+				9AA0B48E127AE436007A0377 /* bonus_time.png in Resources */,
+				9AA0B491127AE459007A0377 /* bonus_shield.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,11 +1608,12 @@
 				9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */,
 				9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */,
 				9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */,
-				9AA0B2E8127A8A2B007A0377 /* MenuLayer.m in Sources */,
+				9AA0B2E8127A8A2B007A0377 /* MenuLayer.mm in Sources */,
 				9AA0B321127A96D9007A0377 /* ScrollableLayer.m in Sources */,
 				9AA0B322127A96D9007A0377 /* AlertLayer.m in Sources */,
 				9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */,
 				9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */,
+				9AA0B4FF127AEF63007A0377 /* MyContactListener.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

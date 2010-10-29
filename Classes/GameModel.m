@@ -90,17 +90,21 @@
 	self.playerStatus = PlayerStatusNil;
 }
 
--(void) nextLevel{
+-(BOOL) nextLevel{
 	level++;
 	self.playerStatus = PlayerStatusNil;
 	NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"LevelInfo" ofType:@"plist"];
 	NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+	if (level > [plistDict count]) {
+		return NO;
+	}
 	NSDictionary *levelInfo = [plistDict objectForKey:[NSString stringWithFormat:@"1 - %d",self.level]];
     self.levelDuration = [[levelInfo objectForKey:@"Duration"] intValue];
 	self.speed = [[levelInfo objectForKey:@"Speed"] intValue];
 	self.collectableGenerationProbability = [[levelInfo objectForKey:@"CollectableGenerationProbability"] floatValue];
 	self.staticEnemyGenerationProbability = [[levelInfo objectForKey:@"StaticEnemyGenerationProbability"] floatValue];
 	self.movingEnemyGenerationProbability = [[levelInfo objectForKey:@"MovingEnemyGenerationProbability"] floatValue];	
+	return YES;
 }
 
 -(Enemies)getMovingEnemyType{
@@ -142,7 +146,8 @@
 		return CollectableNil;
 	
 	NSInteger choice = 1/collectableGenerationProbability;
-	if (abs(arc4random() % choice) == 3) {
+	NSInteger a = abs(arc4random() % choice) ;
+	if (a == 3) {
 		switch (arc4random() % NUM_COLLECTABLES) {
 			case 0:
 				return CollectableInvulnerability;

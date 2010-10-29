@@ -118,9 +118,8 @@
 	}
 	else {
 		self.game = [[[GameModel alloc] init] autorelease];
+		[game nextLevel];
 	}
-	[game nextLevel];
-	[game nextLevel];
 	CCScene *scene = [CCScene node];
 	MenuLayer *mainMenu = [MenuLayer node];
 	[scene addChild:mainMenu z:0 tag:0];

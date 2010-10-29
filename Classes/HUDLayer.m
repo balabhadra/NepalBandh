@@ -22,8 +22,6 @@
 		
 		livesValue = 1;
 		
-		self.isTouchEnabled = YES;
-		
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		
 		CCSprite *hudImage = [CCSprite spriteWithFile:@"hud.png"];
@@ -150,16 +148,4 @@
 	[gameLevel setString:[NSString stringWithFormat:@"%d", level]];
 }
 
-- (void)registerWithTouchDispatcher {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	NSLog(@"TouchBegan\n");
-	return YES;
-}
-
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	
-}
 @end

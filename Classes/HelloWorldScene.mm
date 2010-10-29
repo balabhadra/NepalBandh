@@ -18,35 +18,27 @@
 
 // enums that will be used as tags
 enum {
-	kTagTileMap = 1,
-	kTagBatchNode = 1,
-	kTagAnimation1 = 1,
+	kTagActor = 1,
+	kTagShield = 100,
+	kTagLife = 102,
+	kTagSpeed = 103,
+	kTagTime = 104,
+	kTagBrick = 200,
+	kTagThorn = 201,
+	kTagStone = 202,
+	kTagTyre = 203,
+	kTagFire = 204
 };
 
 
 // HelloWorld implementation
 @implementation HelloWorld
 
-+(id) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	HelloWorld *layer = [HelloWorld node];
-	
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
-	return scene;
-}
-
 // initialize your instance here
 -(id) init
 {
 	if( (self=[super init])) {
-		
+		game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game]; 
 		// enable touches
 		self.isTouchEnabled = YES;
 		
@@ -62,7 +54,7 @@ enum {
 		
 		// Do we want to let bodies sleep?
 		// This will speed up the physics simulation
-		bool doSleep = true;
+		bool doSleep = false;
 		
 		// Construct a world object, which will hold and simulate the rigid bodies.
 		world = new b2World(gravity, doSleep);
@@ -81,6 +73,8 @@ enum {
 //		flags += b2DebugDraw::e_centerOfMassBit;
 		m_debugDraw->SetFlags(flags);		
 		
+		_contactListener = new MyContactListener();
+		world->SetContactListener(_contactListener);
 		
 		// Define the ground body.
 		b2BodyDef groundBodyDef;
@@ -111,21 +105,94 @@ enum {
 		groundBody->CreateFixture(&groundBox,0);
 		
 		
-		//Set up sprite
-		
-		CCSpriteBatchNode *batch = [CCSpriteBatchNode batchNodeWithFile:@"blocks.png" capacity:150];
-		[self addChild:batch z:0 tag:kTagBatchNode];
-		
-		[self addNewSpriteWithCoords:ccp(screenSize.width/2, screenSize.height/2)];
-		
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Tap screen" fontName:@"Marker Felt" fontSize:32];
-		[self addChild:label z:0];
-		[label setColor:ccc3(0,0,255)];
-		label.position = ccp( screenSize.width/2, screenSize.height-50);
-		
 		[self schedule: @selector(tick:)];
+		[self schedule: @selector(spawnObjects:) interval:0.5f];
+		[NSTimer scheduledTimerWithTimeInterval:game.levelDuration target:self selector:@selector(levelComplete) userInfo:nil repeats:NO];
 	}
 	return self;
+}
+
+-(void)levelComplete{
+	
+}
+
+- (BOOL)spawnCollectable {
+	NSString *spriteName;
+	NSInteger sprite_tag;
+	switch ([game getCollectableType]) {
+		case CollectableSpeed:
+			spriteName = @"bonus_speed.png";
+			sprite_tag = kTagSpeed; 
+			break;
+		case CollectableLife:
+			spriteName = @"bonus_life.png";
+			sprite_tag = kTagLife; 
+			break;
+		case CollectableTime:
+			spriteName = @"bonus_time.png";
+			sprite_tag = kTagTime;
+			break;
+		case CollectableInvulnerability:
+			spriteName = @"bonus_shield.png";
+			sprite_tag = kTagShield;
+			break;
+		default:
+			return NO;
+	}
+    CCSprite *collectableSprite = [CCSprite spriteWithFile:spriteName];
+    collectableSprite.position = ccp(550, 220);
+    collectableSprite.tag = sprite_tag;
+
+    [collectableSprite runAction:[CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-24,220)]]; 
+ //   [self addBoxBodyForSprite:car];
+    [self addChild:collectableSprite z:0 tag:sprite_tag];
+    return YES;
+}
+
+- (BOOL)spawnMovingEnemy {
+    return NO;
+}
+
+- (BOOL)spawnStaticEnemy {
+  //  NSString *spriteName;
+//	NSInteger sprite_tag;
+//	switch ([game getStaticEnemyType]) {
+//		case EnemyStone:
+//			spriteName = @"enemy_stone.png";
+//			sprite_tag = kTagStone; 
+//			break;
+//		case EnemyThorn:
+//			spriteName = @"enemy_thorn.png";
+//			sprite_tag = kTagThorn;
+//			break;
+//		case EnemyFire:
+//			spriteName = @"enemy_fire.png";
+//			sprite_tag = kTagFire; 
+//			break;
+//		default:
+//			return NO;
+//	}
+//    CCSprite *enemySprite = [CCSprite spriteWithFile:spriteName];
+//    enemySprite.position = ccp(550, 52);
+//    enemySprite.tag = sprite_tag;
+//	
+//    [enemySprite runAction:[CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-24,220)]]; 
+//	//   [self addBoxBodyForSprite:car];
+//    [self addChild:enemySprite z:0 tag:sprite_tag];
+//    return YES;
+	return NO;
+}
+
+-(void)collectableSpawnExpired{
+	recentCollectableSpawn = NO;
+}
+
+-(void)movingEnemySpawnExpired{
+	recentMovingEnemySpawn = NO;
+}
+
+-(void)staticEnemySpawnExpired{
+	recentStaticEnemySpawn = NO;
 }
 
 -(void) draw
@@ -146,42 +213,28 @@ enum {
 
 }
 
--(void) addNewSpriteWithCoords:(CGPoint)p
-{
-	CCLOG(@"Add sprite %0.2f x %02.f",p.x,p.y);
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagBatchNode];
+-(void) spawnObjects: (ccTime) dt{
+	if(!recentCollectableSpawn){
+		recentCollectableSpawn = [self spawnCollectable];
+		if (recentCollectableSpawn) {
+			[NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(collectableSpawnExpired) userInfo:nil repeats:NO];
+		}
+	}
 	
-	//We have a 64x64 sprite sheet with 4 different 32x32 images.  The following code is
-	//just randomly picking one of the images
-	int idx = (CCRANDOM_0_1() > .5 ? 0:1);
-	int idy = (CCRANDOM_0_1() > .5 ? 0:1);
-	CCSprite *sprite = [CCSprite spriteWithBatchNode:batch rect:CGRectMake(32 * idx,32 * idy,32,32)];
-	[batch addChild:sprite];
+	if(!recentMovingEnemySpawn){
+		recentMovingEnemySpawn = [self spawnMovingEnemy];
+		if (recentMovingEnemySpawn) {
+			[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(movingEnemySpawnExpired) userInfo:nil repeats:NO];
+		}
+	}
 	
-	sprite.position = ccp( p.x, p.y);
-	
-	// Define the dynamic body.
-	//Set up a 1m squared box in the physics world
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-
-	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-	bodyDef.userData = sprite;
-	b2Body *body = world->CreateBody(&bodyDef);
-	
-	// Define another box shape for our dynamic body.
-	b2PolygonShape dynamicBox;
-	dynamicBox.SetAsBox(.5f, .5f);//These are mid points for our 1m box
-	
-	// Define the dynamic body fixture.
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &dynamicBox;	
-	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.3f;
-	body->CreateFixture(&fixtureDef);
+	if(!recentStaticEnemySpawn) {
+		recentStaticEnemySpawn = [self spawnStaticEnemy];
+		if (recentStaticEnemySpawn) {
+			[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(staticEnemySpawnExpired) userInfo:nil repeats:NO];
+		}
+	}
 }
-
-
 
 -(void) tick: (ccTime) dt
 {
@@ -190,8 +243,9 @@ enum {
 	//You need to make an informed choice, the following URL is useful
 	//http://gafferongames.com/game-physics/fix-your-timestep/
 	
-	int32 velocityIterations = 8;
-	int32 positionIterations = 1;
+	
+	int32 velocityIterations = 6;
+	int32 positionIterations = 6;
 	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
@@ -204,43 +258,77 @@ enum {
 		if (b->GetUserData() != NULL) {
 			//Synchronize the AtlasSprites position and rotation with the corresponding body
 			CCSprite *myActor = (CCSprite*)b->GetUserData();
-			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO);
-			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+			//myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO);
+			//myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+			// Convert the Cocos2D position/rotation of the sprite to the Box2D position/rotation
+            b2Vec2 b2Position = b2Vec2(myActor.position.x/PTM_RATIO,
+                                       myActor.position.y/PTM_RATIO);
+            float32 b2Angle = -1 * CC_DEGREES_TO_RADIANS(myActor.rotation);
+            
+            // Update the Box2D position/rotation to match the Cocos2D position/rotation
+            b->SetTransform(b2Position, b2Angle);
 		}	
 	}
+	
+	// Loop through all of the box2d bodies that are currently colliding, that we have
+    // gathered with our custom contact listener...
+    std::vector<MyContact>::iterator pos;
+    for(pos = _contactListener->_contacts.begin(); pos != _contactListener->_contacts.end(); ++pos) {
+        MyContact contact = *pos;
+        
+        // Get the box2d bodies for each object
+        b2Body *bodyA = contact.fixtureA->GetBody();
+        b2Body *bodyB = contact.fixtureB->GetBody();
+        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL) {
+            CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
+            CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
+            
+            // Is sprite A a cat and sprite B a car?  If so, push the cat on a list to be destroyed...
+            if (spriteA.tag == 1 || spriteB.tag == 1) {
+                //Meaningful Collision
+				NSLog(@"collision");
+            } 
+        }        
+    }
+	
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	//Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	touchLocation = [touch locationInView: [touch view]];
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+	if(game.playerStatus != PlayerStatusJumping){
+		UITouch *touch = [touches anyObject];
 		CGPoint location = [touch locationInView: [touch view]];
 		
-		location = [[CCDirector sharedDirector] convertToGL: location];
+		double diffx = touchLocation.x - location.x + 0.1;  // adding 0.1 to avoid division by zero
+		double diffy = touchLocation.y - location.y + 0.1; // adding 0.1 to avoid division by zero
 		
-		[self addNewSpriteWithCoords: location];
+		//vertical swipe
+		if(abs(diffy / diffx) > 1 && abs(diffy) > SWIPE_DRAG_MIN){
+			if (diffy > 0) {
+				//jump
+				NSLog(@"jump");
+				game.playerStatus = PlayerStatusJumping;
+			}
+			else {
+				if(game.playerStatus != PlayerStatusDucking){
+					//duck
+					NSLog(@"duck");
+					game.playerStatus = PlayerStatusDucking;
+				}
+			}
+		}
+		
 	}
 }
 
-- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
-{	
-	static float prevX=0, prevY=0;
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 	
-	//#define kFilterFactor 0.05f
-#define kFilterFactor 1.0f	// don't use filter. the code is here just as an example
-	
-	float accelX = (float) acceleration.x * kFilterFactor + (1- kFilterFactor)*prevX;
-	float accelY = (float) acceleration.y * kFilterFactor + (1- kFilterFactor)*prevY;
-	
-	prevX = accelX;
-	prevY = accelY;
-	
-	// accelerometer values are in "Portrait" mode. Change them to Landscape left
-	// multiply the gravity by 10
-	b2Vec2 gravity( -accelY * 10, accelX * 10);
-	
-	world->SetGravity( gravity );
 }
+
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -248,7 +336,7 @@ enum {
 	// in case you have something to dealloc, do it in this method
 	delete world;
 	world = NULL;
-	
+	delete _contactListener;
 	delete m_debugDraw;
 
 	// don't forget to call "super dealloc"

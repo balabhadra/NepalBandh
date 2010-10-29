@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "NepalBandhAppDelegate.h"
+#import "GameModel.h"
 
 @interface HouseLayer : CCLayer {
-	CGFloat animDuration;
+
 }
-@property (nonatomic, assign) CGFloat animDuration;
+
 @end
