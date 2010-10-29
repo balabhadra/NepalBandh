@@ -68,7 +68,7 @@
 		
 		
 		CCMenu *menu;
-		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"boardMatrix"]){
+		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"SavedData"]){
 			menu = [CCMenu menuWithItems:item1, item2, item3, item4, item6, nil];
 		}
 		else {

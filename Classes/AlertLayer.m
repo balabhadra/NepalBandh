@@ -11,7 +11,8 @@
 @implementation AlertLayer
 
 -(id) initWithMessage:(NSString *)message options:(NSArray *)options target:(id)aTarget selector:(SEL)aSelector {
-	if( (self=[super initWithColor:ccc4(0,0,0,140)] )) {
+	if( (self = [super initWithColor:ccc4(0,0,0,140)] )) {
+		CGSize winSize = [CCDirector sharedDirector].winSize;
 		self.isTouchEnabled = YES;
 		selector = aSelector;
 		target = aTarget;
@@ -26,10 +27,10 @@
 				[menu addChild:item];
 		}
 		[menu alignItemsVerticallyWithPadding:10];
-		menu.position = ccp(160,200);
+		menu.position = ccp(winSize.width / 2, 130);
 		[self addChild:menu];
-		CCLabelTTF *label = [CCLabelTTF labelWithString:message dimensions:CGSizeMake(300,60) alignment:UITextAlignmentCenter fontName:@"Marker Felt" fontSize:20];
-		label.position = ccp(160, 200 + 35*[options count] + 10);
+		CCLabelTTF *label = [CCLabelTTF labelWithString:message dimensions:CGSizeMake(300,60) alignment:UITextAlignmentCenter fontName:@"Marker Felt" fontSize:35];
+		label.position = ccp(winSize.width / 2, 200 + 35*[options count] - 50);
 		[self addChild:label];
 	}
 	return self;

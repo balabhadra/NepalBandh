@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F3B9A2D0EF2145700286867 /* NepalBandhAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* NepalBandhAppDelegate.mm */; };
+		22A0E4B2127ABA510016AEFB /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E4B1127ABA510016AEFB /* heart.png */; };
+		22A0E590127ACEE80016AEFB /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E58F127ACEE80016AEFB /* clock.png */; };
+		22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E5B8127AD1A80016AEFB /* pauseButton_on.png */; };
+		22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E5B9127AD1A80016AEFB /* pauseButton.png */; };
 		504DFC0610AF1414006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC0010AF1414006D82FE /* CLScoreServerPost.h */; };
 		504DFC0710AF1414006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFC0110AF1414006D82FE /* CLScoreServerPost.m */; };
 		504DFC0810AF1414006D82FE /* CLScoreServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC0210AF1414006D82FE /* CLScoreServerRequest.h */; };
@@ -349,6 +353,10 @@
 		1F3B9A2B0EF2145700286867 /* NepalBandhAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NepalBandhAppDelegate.mm; sourceTree = "<group>"; };
 		1F3B9A2C0EF2145700286867 /* NepalBandhAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NepalBandhAppDelegate.h; path = Classes/NepalBandhAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* NepalBandh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NepalBandh_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		22A0E4B1127ABA510016AEFB /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		22A0E58F127ACEE80016AEFB /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		22A0E5B8127AD1A80016AEFB /* pauseButton_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton_on.png; sourceTree = "<group>"; };
+		22A0E5B9127AD1A80016AEFB /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		504DFC0010AF1414006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
 		504DFC0110AF1414006D82FE /* CLScoreServerPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLScoreServerPost.m; sourceTree = "<group>"; };
@@ -744,12 +752,24 @@
 		22A0E420127AA1940016AEFB /* GameView */ = {
 			isa = PBXGroup;
 			children = (
+				22A0E58B127ACE2A0016AEFB /* HUD */,
 				9AA0B2CE127A87E3007A0377 /* home_town.png */,
 				9AA0B2CF127A87E3007A0377 /* Background.png */,
 				9AA0B2D4127A8955007A0377 /* heart_small.png */,
-				9AA0B2D0127A87E3007A0377 /* hud.png */,
 			);
 			name = GameView;
+			sourceTree = "<group>";
+		};
+		22A0E58B127ACE2A0016AEFB /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				22A0E5B8127AD1A80016AEFB /* pauseButton_on.png */,
+				22A0E5B9127AD1A80016AEFB /* pauseButton.png */,
+				22A0E58F127ACEE80016AEFB /* clock.png */,
+				22A0E4B1127ABA510016AEFB /* heart.png */,
+				9AA0B2D0127A87E3007A0377 /* hud.png */,
+			);
+			name = HUD;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -1534,6 +1554,10 @@
 				9AA0B317127A91D7007A0377 /* menu.png in Resources */,
 				9AA0B319127A9548007A0377 /* Icon.png in Resources */,
 				9AA0B31C127A965D007A0377 /* menuBackground.png in Resources */,
+				22A0E4B2127ABA510016AEFB /* heart.png in Resources */,
+				22A0E590127ACEE80016AEFB /* clock.png in Resources */,
+				22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */,
+				22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,17 @@
 #import "cocos2d.h"
 
 @interface HUDLayer : CCLayer {
-
+	NSInteger livesValue;
+	
+	CCLabelTTF *score;
+	CCLabelTTF *gameLevel;
 }
+
+@property (nonatomic, retain) CCLabelTTF *score;
+@property (nonatomic, retain) CCLabelTTF *gameLevel;
+
+- (void)increaseLives:(BOOL) addLivesStatus;
+- (void)updateScore:(NSInteger)setScore;
+- (void)updateGameLevel:(NSInteger)level;
 
 @end
