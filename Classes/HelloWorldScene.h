@@ -21,6 +21,14 @@
 // HelloWorld Layer
 @interface HelloWorld : CCLayer
 {
+	CCSprite *fire;
+	CCAction *burning;
+	
+	CCSprite *skate_boy_run;
+	CCSprite *skate_boy_jump;	
+	CCAction *run;
+	CCAction *jump;
+	
 	b2World* world;
 	GLESDebugDraw *m_debugDraw;
 	MyContactListener *_contactListener;
@@ -36,6 +44,12 @@
 }
 
 @property (nonatomic, retain) NSTimer *invulnerableTimer; 
+@property (nonatomic, retain) CCSprite *fire;
+@property (nonatomic, retain) CCSprite *skate_boy_run;
+@property (nonatomic, retain) CCSprite *skate_boy_jump;
+@property (nonatomic, retain) CCAction *burning;
+@property (nonatomic, retain) CCAction *run;
+@property (nonatomic, retain) CCAction *jump;
 
 
 

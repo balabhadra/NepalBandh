@@ -41,6 +41,12 @@ enum {
 @implementation HelloWorld
 
 @synthesize invulnerableTimer;
+@synthesize fire;
+@synthesize burning;
+@synthesize run;
+@synthesize jump;
+@synthesize skate_boy_jump;
+@synthesize skate_boy_run;
 
 // initialize your instance here
 -(id) init
@@ -56,7 +62,74 @@ enum {
 		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"playsound.wav"];
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
-		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
+		
+		//Cache the sprite frames and texture
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"jumping.plist"];
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"running.plist"];
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"fire.plist"];
+		
+		//Create the SpriteSheet
+		CCSpriteSheet* spriteSheetJumping = [CCSpriteSheet spriteSheetWithFile:@"jumping.png"];
+		CCSpriteSheet* spriteSheetRunning = [CCSpriteSheet spriteSheetWithFile:@"running.png"];
+		CCSpriteSheet* spriteSheetFire = [CCSpriteSheet spriteSheetWithFile:@"fire.png"];
+		
+		
+		// Array to save sprite frames
+		
+		NSMutableArray *fireFrameArray = [NSMutableArray array];
+		for (int i = 0; i <= 6; i++) {
+			[fireFrameArray addObject:
+			 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"fire%d.png", i]]];
+		}
+		
+		NSMutableArray *runFrameArray = [NSMutableArray array];
+		for (int i = 1; i <= 10; i++) {
+			[runFrameArray addObject:
+			 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"running000%d.png", i]]];
+		}
+		
+		NSMutableArray *jumpFrameArray = [NSMutableArray array];
+		for (int i = 1; i <= 10; i++) {
+			[jumpFrameArray addObject:
+			 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jump000%d.png", i]]];
+		}
+		
+		// Creating Animation Object using above frames
+		CCAnimation *burnAnim = [CCAnimation animationWithName:@"burn" delay:0.1f frames:fireFrameArray];
+		CCAnimation *runAnim = [CCAnimation animationWithName:@"run" delay:0.1f frames:runFrameArray];
+		CCAnimation *jumpAnim = [CCAnimation animationWithName:@"jump" delay:0.1f frames:jumpFrameArray];
+		
+		self.fire = [CCSprite spriteWithSpriteFrameName:@"fire0.png"];
+		self.skate_boy_run = [CCSprite spriteWithSpriteFrameName:@"running0001.png"];
+		self.skate_boy_jump = [CCSprite spriteWithSpriteFrameName:@"jump0001.png"];
+		
+		fire.position = ccp(screenSize.width / 2, screenSize.height / 2);
+		skate_boy_run.position = ccp(screenSize.width / 4, screenSize.height / 2);
+		skate_boy_jump.position = ccp(screenSize.width - screenSize.width / 4, screenSize.height / 2);
+		
+		self.burning = [CCRepeatForever actionWithAction:
+						   [CCAnimate actionWithAnimation:burnAnim restoreOriginalFrame:NO]];
+		[fire runAction:burning];
+		[spriteSheetFire addChild:fire z:0];
+		[self addChild:spriteSheetFire z:0];
+		
+		self.run = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runAnim restoreOriginalFrame:NO]];
+		[skate_boy_run runAction:run];
+		[spriteSheetRunning addChild:skate_boy_run z:0];
+		[self addChild:spriteSheetRunning z:0];
+
+		self.jump = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:jumpAnim restoreOriginalFrame:NO]];
+		[skate_boy_jump runAction:jump];
+		[spriteSheetJumping addChild:skate_boy_jump z:0];
+		[self addChild:spriteSheetJumping z:0];
+		
+		
+//		self.star = [CCSprite spriteWithSpriteFrameName:@"star1.png"];
+//		_star.position = ccp(winSize.width / 5, winSize.height / 2);
+//		self.jumpAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:starAnim restoreOriginalFrame:NO]];
+//		[_star runAction:_jumpAction];
+//		[spriteSheetStar addChild:_star];
+		
 		
 		// Define the gravity vector.
 		b2Vec2 gravity;
