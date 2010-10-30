@@ -11,16 +11,20 @@
 
 @interface HUDLayer : CCLayer {
 	NSInteger livesValue;
+	NSInteger timeValue;
 	
 	CCLabelTTF *score;
 	CCLabelTTF *gameLevel;
+	CCLabelTTF *timeRemaingLabel;
 }
 
 @property (nonatomic, retain) CCLabelTTF *score;
 @property (nonatomic, retain) CCLabelTTF *gameLevel;
+@property (nonatomic, retain) CCLabelTTF *timeRemainingLabel;
 
 - (void)increaseLives:(BOOL) addLivesStatus;
 - (void)updateScore:(NSInteger)setScore;
 - (void)updateGameLevel:(NSInteger)level;
+- (void)updateTime:(ccTime)dt;
 
 @end

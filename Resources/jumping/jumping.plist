@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		<key>jump0001.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{405, 162}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{18, 58}, {69, 100}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0002.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{203, 162}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{22, 58}, {62, 94}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0003.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 162}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{27, 58}, {57, 89}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0004.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{102, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{26, 58}, {58, 87}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0005.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{405, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{25, 58}, {59, 84}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0006.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{26, 58}, {58, 86}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0007.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{304, 162}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{27, 58}, {57, 89}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0008.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{304, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{24, 58}, {60, 92}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0009.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{102, 162}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{21, 58}, {64, 96}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump0010.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{203, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{18, 58}, {69, 100}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>format</key>
+		<integer>1</integer>
+		<key>size</key>
+		<string>{512, 512}</string>
+	</dict>
+</dict>
+</plist>

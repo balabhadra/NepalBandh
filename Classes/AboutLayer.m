@@ -9,6 +9,7 @@
 #import "AboutLayer.h"
 #import "ScrollableLayer.h"
 #import "MenuLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation AboutLayer
 
@@ -44,6 +45,7 @@
 }
 
 - (void)onBack:(id)sender {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *menuScene = [CCScene node];
 	MenuLayer *menuLayer = [MenuLayer node];
 	[menuScene addChild:menuLayer z:0 tag:0];

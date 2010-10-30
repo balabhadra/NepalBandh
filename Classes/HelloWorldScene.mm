@@ -14,6 +14,7 @@
 #import "HouseLayer.h"
 #import	"HUDLayer.h"
 #import "MenuLayer.h"
+#import "SimpleAudioEngine.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -51,6 +52,8 @@ enum {
 		
 		// enable accelerometer
 		self.isAccelerometerEnabled = YES;
+		
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"playsound.wav"];
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
@@ -150,6 +153,7 @@ enum {
 
 -(void)levelComplete{
 	levelCompleted = YES;
+	[[SimpleAudioEngine sharedEngine] playEffect:@"levelComplete.wav"];
 	for(CCSprite * spr in [[self.parent getChildByTag:1] children]){
 		[spr stopAllActions];
 	}
@@ -466,6 +470,7 @@ enum {
 			
 			if (collisionSprite.tag >=200) {
 				if(!invulnerable){
+					[[SimpleAudioEngine sharedEngine] playEffect:@"Ouch.wav"];
 					NSLog(@"Bad collision");
 					game.lives--;
 					[hud increaseLives:NO];
@@ -489,13 +494,18 @@ enum {
 						CCNode *node = [OverlayLayer node];
 						[node addChild:label1];
 						[node addChild:label2];
+						
 						[self addChild:node];
+						printf("dead wave played");
+						[[SimpleAudioEngine sharedEngine] playEffect:@"dead.wav"];
 						
 						[game reset];
 						[game nextLevel];
 						
 					}
 					else {
+						
+					
 						CCLabelTTF *label = [CCLabelTTF labelWithString:@"Ouch !!!!" fontName:@"Marker Felt" fontSize:30];
 						label.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
 						[self addChild:label];
@@ -525,6 +535,7 @@ enum {
 				}
 			}
 			else if (collisionSprite.tag >=100){
+				[[SimpleAudioEngine sharedEngine] playEffect:@"bonus.wav"];
 				NSLog(@"Good collision");
 				if (collisionSprite.tag == kTagLife) {
 					if (game.lives<5) {
@@ -589,6 +600,7 @@ enum {
 		if(abs(diffy / diffx) > 1 && abs(diffy) > SWIPE_DRAG_MIN){
 			if (diffy > 0) {
 				//jump
+				[[SimpleAudioEngine sharedEngine] playEffect:@"jump.mp3"];
 				NSLog(@"jump");
 				game.playerStatus = PlayerStatusJumping;
 				CCSprite *actor = (CCSprite *)[self getChildByTag:kTagActor];
@@ -599,6 +611,7 @@ enum {
 			else {
 				if(game.playerStatus != PlayerStatusDucking){
 					//duck
+					[[SimpleAudioEngine sharedEngine] playEffect:@"dodge.mp3"];
 					NSLog(@"duck");
 					game.playerStatus = PlayerStatusDucking;
 				}
@@ -673,4 +686,5 @@ enum {
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }
+
 @end

@@ -7,79 +7,79 @@
 		<key>fire0.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{756, 1}, {150, 300}}</string>
+			<string>{{148, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 24}, {146, 236}}</string>
+			<string>{{0, 7}, {48, 77}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire1.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {150, 300}}</string>
+			<string>{{1, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 24}, {146, 235}}</string>
+			<string>{{0, 7}, {48, 76}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire2.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 1}, {150, 300}}</string>
+			<string>{{99, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 29}, {146, 230}}</string>
+			<string>{{0, 9}, {48, 74}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire3.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{454, 1}, {150, 300}}</string>
+			<string>{{295, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 29}, {146, 230}}</string>
+			<string>{{0, 9}, {48, 74}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire4.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{605, 1}, {150, 300}}</string>
+			<string>{{246, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 29}, {146, 230}}</string>
+			<string>{{0, 9}, {48, 74}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire5.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{303, 1}, {150, 300}}</string>
+			<string>{{50, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 29}, {146, 230}}</string>
+			<string>{{0, 9}, {48, 74}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 		<key>fire6.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{152, 1}, {150, 300}}</string>
+			<string>{{197, 1}, {48, 96}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
-			<string>{{1, 29}, {146, 230}}</string>
+			<string>{{0, 9}, {48, 74}}</string>
 			<key>sourceSize</key>
-			<string>{150, 300}</string>
+			<string>{48, 96}</string>
 		</dict>
 	</dict>
 	<key>metadata</key>
@@ -87,7 +87,7 @@
 		<key>format</key>
 		<integer>1</integer>
 		<key>size</key>
-		<string>{1024, 512}</string>
+		<string>{512, 128}</string>
 	</dict>
 </dict>
 </plist>

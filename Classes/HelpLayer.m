@@ -8,6 +8,7 @@
 
 #import "HelpLayer.h"
 #import "MenuLayer.h"
+#import "SimpleAudioEngine.h"
 
 
 @implementation HelpLayer
@@ -71,6 +72,7 @@
 }
 
 - (void)goBack:(id)sender {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];	
 	CCScene *menuScene = [CCScene node];
 	MenuLayer *menuLayer = [MenuLayer node];
 	[menuScene addChild:menuLayer z:0 tag:0];
@@ -78,6 +80,7 @@
 }
 
 - (void)goPrevious:(id)sender {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];	
 	CGSize winSize = [CCDirector sharedDirector].winSize;
 	
 	if (currentPageNo > 0)
@@ -158,6 +161,8 @@
 }
 
 - (void)goNext:(id)sender {
+	
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];	
 	CGSize winSize = [CCDirector sharedDirector].winSize;
 
 	if (currentPageNo < 3)
