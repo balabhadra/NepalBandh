@@ -45,17 +45,17 @@
 		}
 		
 		gameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", game.level]  
-							  dimensions:CGSizeMake(20, 20) 
+							  dimensions:CGSizeMake(40, 20) 
 							   alignment:UITextAlignmentRight 
 								fontName:@"Trebuchet MS" fontSize:18.0];
 		
 		score = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", game.score]  
-									 dimensions:CGSizeMake(20, 20) 
+									 dimensions:CGSizeMake(100, 20) 
 									  alignment:UITextAlignmentRight 
 									   fontName:@"Trebuchet MS" fontSize:18.0];
 		
 		timeRemaingLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", game.levelDuration]
-											dimensions:CGSizeMake(20, 20)
+											dimensions:CGSizeMake(40, 20)
 											 alignment:UITextAlignmentCenter
 											  fontName:@"Trebuchet MS" fontSize:18.0];
 		
@@ -155,7 +155,7 @@
 }
 
 - (void)updateScore:(NSInteger)setScore {
-	[gameLevel setString:[NSString stringWithFormat:@"%d", setScore]];	
+	[score setString:[NSString stringWithFormat:@"%d", setScore]];	
 }
 
 - (void)updateGameLevel:(NSInteger)level {

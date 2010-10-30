@@ -50,14 +50,14 @@
 		CCSprite *menuSprite0= [CCSprite spriteWithSpriteFrameName:@"continue.png"];
 		CCSprite *menuSprite1 = [CCSprite spriteWithSpriteFrameName:@"play.png"];
 		CCSprite *menuSprite2 = [CCSprite spriteWithSpriteFrameName:@"options.png"];
-		CCSprite *menuSprite3 = [CCSprite spriteWithSpriteFrameName:@"highscore.png"];
+		//CCSprite *menuSprite3 = [CCSprite spriteWithSpriteFrameName:@"highscore.png"];
 		CCSprite *menuSprite4 = [CCSprite spriteWithSpriteFrameName:@"help.png"];
 		CCSprite *menuSprite6 = [CCSprite spriteWithSpriteFrameName:@"about.png"];
 		
 		CCSprite *menuSpriteSelected0= [CCSprite spriteWithSpriteFrameName:@"continueSelected.png"];
 		CCSprite *menuSpriteSelected1 = [CCSprite spriteWithSpriteFrameName:@"playSelected.png"];
 		CCSprite *menuSpriteSelected2 = [CCSprite spriteWithSpriteFrameName:@"optionsSelected.png"];
-		CCSprite *menuSpriteSelected3 = [CCSprite spriteWithSpriteFrameName:@"highscoreSelected.png"];
+		//CCSprite *menuSpriteSelected3 = [CCSprite spriteWithSpriteFrameName:@"highscoreSelected.png"];
 		CCSprite *menuSpriteSelected4 = [CCSprite spriteWithSpriteFrameName:@"helpSelected.png"];
 		CCSprite *menuSpriteSelected6 = [CCSprite spriteWithSpriteFrameName:@"aboutSelected.png"];
 		
@@ -71,25 +71,25 @@
 													selectedSprite:menuSpriteSelected1 target:self selector:@selector(onPlay:)];
 		CCMenuItem *item2 = [CCMenuItemSprite itemFromNormalSprite:menuSprite2 
 													selectedSprite:menuSpriteSelected2 target:self selector:@selector(onOptions:)];
-		CCMenuItem *item3 = [CCMenuItemSprite itemFromNormalSprite:menuSprite3 
-													selectedSprite:menuSpriteSelected3 target:self selector:@selector(onHighScore:)];
+	//	CCMenuItem *item3 = [CCMenuItemSprite itemFromNormalSprite:menuSprite3 
+	//												selectedSprite:menuSpriteSelected3 target:self selector:@selector(onHighScore:)];
 		CCMenuItem *item4 = [CCMenuItemSprite itemFromNormalSprite:menuSprite4 
 													selectedSprite:menuSpriteSelected4 target:self selector:@selector(onHelp:)];
 		CCMenuItem *item6 = [CCMenuItemSprite itemFromNormalSprite:menuSprite6 
 													selectedSprite:menuSpriteSelected6 target:self selector:@selector(onAbout:)];
 		item1.scale = MENU_ITEM_SCALE_FACTOR;
 		item2.scale = MENU_ITEM_SCALE_FACTOR;
-		item3.scale = MENU_ITEM_SCALE_FACTOR;
+	//	item3.scale = MENU_ITEM_SCALE_FACTOR;
 		item4.scale = MENU_ITEM_SCALE_FACTOR;
 		item6.scale = MENU_ITEM_SCALE_FACTOR;
 		
 		CCMenu *menu;
 
 		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
-			menu = [CCMenu menuWithItems:item1, item2, item3, item4, item6, nil];
+			menu = [CCMenu menuWithItems:item1, item2, item4, item6, nil];
 		}
 		else {
-			menu = [CCMenu menuWithItems:item0,item1, item2, item3, item4, item6, nil];
+			menu = [CCMenu menuWithItems:item0,item1, item2, item4, item6, nil];
 		}
 		menu.position = ccp(375, 110);
 		[menu alignItemsVerticallyWithPadding:2.5];

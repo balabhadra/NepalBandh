@@ -117,6 +117,7 @@ enum {
 		
 		[self schedule: @selector(tick:)];
 		[self schedule: @selector(spawnObjects:) interval:0.5f];
+		[self schedule: @selector(increaseScore:) interval:0.2f];
 		[NSTimer scheduledTimerWithTimeInterval:game.levelDuration target:self selector:@selector(levelComplete) userInfo:nil repeats:NO];
 		
 		//Protagonist
@@ -151,6 +152,12 @@ enum {
 	return self;
 }
 
+-(void)increaseScore:(ccTime)dt{
+	game.score += game.level * game.lives + arc4random() % 20;
+	HUDLayer *hud = (HUDLayer *)[self.parent getChildByTag:3];
+	[hud updateScore:game.score];
+}
+
 -(void)levelComplete{
 	levelCompleted = YES;
 	[[SimpleAudioEngine sharedEngine] playEffect:@"levelComplete.wav"];
@@ -162,6 +169,7 @@ enum {
 		[spr stopAllActions];
 	}
 	[self unschedule:@selector(tick:)];
+	[self unschedule:@selector(increaseScore:)];
 	[self unschedule:@selector(spawnObjects:)];
 	CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Level Completed"] fontName:@"Marker Felt" fontSize:40];
 	label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 30);
@@ -393,7 +401,7 @@ enum {
 	if(!recentStaticEnemySpawn) {
 		recentStaticEnemySpawn = [self spawnStaticEnemy];
 		if (recentStaticEnemySpawn) {
-			[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(staticEnemySpawnExpired) userInfo:nil repeats:NO];
+			[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(staticEnemySpawnExpired) userInfo:nil repeats:NO];
 		}
 	}
 }
@@ -486,6 +494,7 @@ enum {
 						[[self.parent getChildByTag:3] removeChildByTag:6 cleanup:YES];
 						[self unschedule:@selector(tick:)];
 						[self unschedule:@selector(spawnObjects:)];
+						[self unschedule:@selector(increaseScore:)];
 						CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Game Over"] fontName:@"Marker Felt" fontSize:40];
 						label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 30);
 						CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"(TAP to continue)" fontName:@"Marker Felt" fontSize:34];

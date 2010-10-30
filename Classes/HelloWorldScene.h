@@ -16,7 +16,7 @@
 #import "NepalBandhAppDelegate.h"
 
 #define SWIPE_DRAG_MIN			20
-#define COLLECTABLE_RADIUS		20
+#define COLLECTABLE_RADIUS		25
 
 // HelloWorld Layer
 @interface HelloWorld : CCLayer

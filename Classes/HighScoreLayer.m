@@ -46,18 +46,6 @@
 //create default highscore if not already created.
 - (void)createHighScoreList{
 	if([[NSUserDefaults standardUserDefaults] objectForKey:@"HighScores"] == nil){
-#ifndef LITE_VERSION
-		scoreArray = [[NSMutableArray arrayWithObjects:	[NSNumber numberWithInt:50000],
-					   [NSNumber numberWithInt:45000],
-					   [NSNumber numberWithInt:40000],
-					   [NSNumber numberWithInt:35000],
-					   [NSNumber numberWithInt:30000],
-					   [NSNumber numberWithInt:25000],
-					   [NSNumber numberWithInt:20000],	
-					   [NSNumber numberWithInt:15000],	
-					   [NSNumber numberWithInt:10000],	
-					   [NSNumber numberWithInt:5000],nil] retain];
-#else
 		scoreArray = [[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:50000],
 					   [NSNumber numberWithInt:40000],
 					   [NSNumber numberWithInt:30000],
@@ -67,8 +55,7 @@
 					   [NSNumber numberWithInt:4000],	
 					   [NSNumber numberWithInt:3000],	
 					   [NSNumber numberWithInt:2000],	
-					   [NSNumber numberWithInt:1000],nil] retain];
-#endif		
+					   [NSNumber numberWithInt:1000],nil] retain];		
 		nameArray = [[NSMutableArray arrayWithObjects:   @"John",
 					  @"William",
 					  @"Jack",	
