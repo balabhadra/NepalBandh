@@ -191,6 +191,7 @@
 		9AA0B635127B2EC7007A0377 /* enemy_stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B633127B2EC7007A0377 /* enemy_stone.png */; };
 		9AA0B636127B2EC7007A0377 /* skate-boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B634127B2EC7007A0377 /* skate-boy.png */; };
 		9AAF2599127BF2AB002A68D1 /* enemy_thorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF2598127BF2AB002A68D1 /* enemy_thorn.png */; };
+		9AAF2714127C1887002A68D1 /* fire-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF2713127C1887002A68D1 /* fire-grayscale.png */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -581,6 +582,7 @@
 		9AA0B633127B2EC7007A0377 /* enemy_stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_stone.png; sourceTree = "<group>"; };
 		9AA0B634127B2EC7007A0377 /* skate-boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skate-boy.png"; sourceTree = "<group>"; };
 		9AAF2598127BF2AB002A68D1 /* enemy_thorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_thorn.png; sourceTree = "<group>"; };
+		9AAF2713127C1887002A68D1 /* fire-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fire-grayscale.png"; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1206,6 +1208,7 @@
 		50F4144210692EE7002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9AAF2713127C1887002A68D1 /* fire-grayscale.png */,
 				2286F030127BC405005F8169 /* Sounds */,
 				22A0E700127AFA750016AEFB /* Animation */,
 				22A0E416127AA1380016AEFB /* MainMenu */,
@@ -1736,6 +1739,7 @@
 				227B09DC127BF864001D1F7A /* running.plist in Resources */,
 				227B09DD127BF864001D1F7A /* running.png in Resources */,
 				9AAF2599127BF2AB002A68D1 /* enemy_thorn.png in Resources */,
+				9AAF2714127C1887002A68D1 /* fire-grayscale.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,20 +68,14 @@ enum {
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"running.plist"];
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"fire.plist"];
 		
-		//Create the SpriteSheet
-		CCSpriteSheet* spriteSheetJumping = [CCSpriteSheet spriteSheetWithFile:@"jumping.png"];
-		CCSpriteSheet* spriteSheetRunning = [CCSpriteSheet spriteSheetWithFile:@"running.png"];
-		CCSpriteSheet* spriteSheetFire = [CCSpriteSheet spriteSheetWithFile:@"fire.png"];
-		
-		
 		// Array to save sprite frames
 		
-		NSMutableArray *fireFrameArray = [NSMutableArray array];
+/*		NSMutableArray *fireFrameArray = [NSMutableArray array];
 		for (int i = 0; i <= 6; i++) {
 			[fireFrameArray addObject:
 			 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"fire%d.png", i]]];
 		}
-		
+*/		
 		NSMutableArray *runFrameArray = [NSMutableArray array];
 		for (int i = 1; i <= 10; i++) {
 			[runFrameArray addObject:
@@ -95,40 +89,34 @@ enum {
 		}
 		
 		// Creating Animation Object using above frames
-		CCAnimation *burnAnim = [CCAnimation animationWithName:@"burn" delay:0.1f frames:fireFrameArray];
+//		CCAnimation *burnAnim = [CCAnimation animationWithName:@"burn" delay:0.1f frames:fireFrameArray];
 		CCAnimation *runAnim = [CCAnimation animationWithName:@"run" delay:0.1f frames:runFrameArray];
 		CCAnimation *jumpAnim = [CCAnimation animationWithName:@"jump" delay:0.1f frames:jumpFrameArray];
 		
-		self.fire = [CCSprite spriteWithSpriteFrameName:@"fire0.png"];
-		self.skate_boy_run = [CCSprite spriteWithSpriteFrameName:@"running0001.png"];
-		self.skate_boy_jump = [CCSprite spriteWithSpriteFrameName:@"jump0001.png"];
-		
-		fire.position = ccp(screenSize.width / 2, screenSize.height / 2);
-		skate_boy_run.position = ccp(screenSize.width / 4, screenSize.height / 2);
-		skate_boy_jump.position = ccp(screenSize.width - screenSize.width / 4, screenSize.height / 2);
-		
-		self.burning = [CCRepeatForever actionWithAction:
-						   [CCAnimate actionWithAnimation:burnAnim restoreOriginalFrame:NO]];
-		[fire runAction:burning];
-		[spriteSheetFire addChild:fire z:0];
-		[self addChild:spriteSheetFire z:0];
-		
-		self.run = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runAnim restoreOriginalFrame:NO]];
-		[skate_boy_run runAction:run];
-		[spriteSheetRunning addChild:skate_boy_run z:0];
-		[self addChild:spriteSheetRunning z:0];
-
-		self.jump = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:jumpAnim restoreOriginalFrame:NO]];
-		[skate_boy_jump runAction:jump];
-		[spriteSheetJumping addChild:skate_boy_jump z:0];
-		[self addChild:spriteSheetJumping z:0];
-		
-		
-//		self.star = [CCSprite spriteWithSpriteFrameName:@"star1.png"];
-//		_star.position = ccp(winSize.width / 5, winSize.height / 2);
-//		self.jumpAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:starAnim restoreOriginalFrame:NO]];
-//		[_star runAction:_jumpAction];
-//		[spriteSheetStar addChild:_star];
+		//self.fire = [CCSprite spriteWithSpriteFrameName:@"fire0.png"];
+//		self.skate_boy_run = [CCSprite spriteWithSpriteFrameName:@"running0001.png"];
+//		self.skate_boy_jump = [CCSprite spriteWithSpriteFrameName:@"jump0001.png"];
+//		
+//	//	fire.position = ccp(screenSize.width / 2, screenSize.height / 2);
+//		skate_boy_run.position = ccp(screenSize.width / 4, screenSize.height / 2);
+//		skate_boy_jump.position = ccp(screenSize.width - screenSize.width / 4, screenSize.height / 2);
+//		
+//	//	self.burning = [CCRepeatForever actionWithAction:
+//	//					   [CCAnimate actionWithAnimation:burnAnim restoreOriginalFrame:NO]];
+//	//	[fire runAction:burning];
+//		
+//		[self addChild:fire z:0 tag:kTagFire];
+//		
+//		self.run = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runAnim restoreOriginalFrame:NO]];
+//		[skate_boy_run runAction:run];
+//		//[spriteSheetRunning addChild:skate_boy_run z:0];
+//		[self addChild:skate_boy_run z:0];
+//
+//		self.jump = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:jumpAnim restoreOriginalFrame:NO]];
+//		[skate_boy_jump runAction:jump];
+//		//[spriteSheetJumping addChild:skate_boy_jump z:0];
+//		[self addChild:skate_boy_jump z:0];
+//
 		
 		
 		// Define the gravity vector.
@@ -146,7 +134,7 @@ enum {
 		
 		// Debug Draw functions
 		m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-		world->SetDebugDraw(m_debugDraw);
+		//world->SetDebugDraw(m_debugDraw);
 		
 		uint32 flags = 0;
 		flags += b2DebugDraw::e_shapeBit;
@@ -195,24 +183,25 @@ enum {
 		
 		//Protagonist
 		
-		CCSprite *sprite = [CCSprite spriteWithFile:@"skate-boy.png"];
-		sprite.position = ccp(96, 52);
+		self.skate_boy_run = [CCSprite spriteWithSpriteFrameName:@"running0001.png"];
+		skate_boy_run.position = ccp(96, 100);
+		self.run = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runAnim restoreOriginalFrame:NO]];
+		[skate_boy_run runAction:run];
 		
-		[self addChild:sprite z:1 tag:kTagActor];
+		[self addChild:skate_boy_run z:1 tag:kTagActor];
 		
 		b2BodyDef spriteBodyDef;
 		spriteBodyDef.type = b2_dynamicBody;
-		spriteBodyDef.position.Set(sprite.position.x/PTM_RATIO, sprite.position.y/PTM_RATIO);
-		spriteBodyDef.userData = sprite;
+		spriteBodyDef.position.Set(skate_boy_run.position.x/PTM_RATIO, skate_boy_run.position.y/PTM_RATIO);
+		spriteBodyDef.userData = skate_boy_run;
 		b2Body *spriteBody = world->CreateBody(&spriteBodyDef);
 		
 		b2PolygonShape spriteShape;
-		NSInteger num = 5;
-		b2Vec2 verts[] = {b2Vec2(38.0f / PTM_RATIO, -39.0f / PTM_RATIO),
-			b2Vec2(7.0f / PTM_RATIO, 46.0f / PTM_RATIO),
-			b2Vec2(-15.0f / PTM_RATIO, 44.0f / PTM_RATIO),
-			b2Vec2(-41.0f / PTM_RATIO, -28.0f / PTM_RATIO),
-			b2Vec2(24.0f / PTM_RATIO, -45.0f / PTM_RATIO)};
+		NSInteger num = 4;
+		b2Vec2 verts[] = {b2Vec2(43.0f / PTM_RATIO, -77.0f / PTM_RATIO),
+			b2Vec2(8.0f / PTM_RATIO, 26.0f / PTM_RATIO),
+			b2Vec2(-19.0f / PTM_RATIO, 8.0f / PTM_RATIO),
+			b2Vec2(-32.0f / PTM_RATIO, -78.0f / PTM_RATIO)};
 		spriteShape.Set(verts, num);
 		b2FixtureDef spriteShapeDef;
 		spriteShapeDef.shape = &spriteShape;
@@ -364,7 +353,22 @@ enum {
         
     }
 	else if(sprite.tag == kTagFire){
+		b2PolygonShape spriteShape;
+		NSInteger num = 5;
+		b2Vec2 verts[] = {b2Vec2(23.0f / PTM_RATIO, -46.0f / PTM_RATIO),
+			b2Vec2(22.0f / PTM_RATIO, -10.0f / PTM_RATIO),
+			b2Vec2(3.0f / PTM_RATIO, 41.0f / PTM_RATIO),
+			b2Vec2(-23.0f / PTM_RATIO, -25.0f / PTM_RATIO),
+			b2Vec2(-21.0f / PTM_RATIO, -45.0f / PTM_RATIO)};
+		spriteShape.Set(verts, num);
 		
+		b2FixtureDef spriteShapeDef;
+		spriteShapeDef.shape = &spriteShape;
+		spriteShapeDef.density = 10.0;
+		spriteShapeDef.isSensor = true;
+		
+		spriteBody->CreateFixture(&spriteShapeDef);
+		return;
 	}
 	else if(sprite.tag == kTagBrick){
 		
@@ -388,10 +392,25 @@ enum {
 			sprite_tag = kTagThorn;
 			break;
 		case EnemyFire:
-			spriteName = @"enemy_stone.png";
-			sprite_tag = kTagStone; 
-			//spriteName = @"enemy_fire.png";
-			//sprite_tag = kTagFire; 
+		{	
+			NSMutableArray *fireFrameArray = [NSMutableArray array];
+			for (int i = 0; i <= 6; i++) {
+				[fireFrameArray addObject:
+				 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"fire%d.png", i]]];
+			}
+			CCAnimation *burnAnim = [CCAnimation animationWithName:@"burn" delay:0.1f frames:fireFrameArray];
+			CCSprite *fireSprite = [CCSprite spriteWithSpriteFrameName:@"fire0.png"];
+			fireSprite.position = ccp(550, 52);
+			fireSprite.tag = kTagFire;
+			id action= [CCSpawn actions: [CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-64,52)],
+						[CCRepeat actionWithAction:[CCAnimate actionWithAnimation:burnAnim restoreOriginalFrame:NO] times:5], nil];
+			id action1 = [CCSequence actions: action, 
+						  [CCCallFuncN actionWithTarget:self selector:@selector(spriteDone:)],nil];
+			[fireSprite runAction:action1];
+			[self addBoxBodyForEnemy:fireSprite];
+			[self addChild:fireSprite z:0 tag:kTagFire];
+		}
+			return YES;
 			break;
 		default:
 			return NO;
@@ -482,7 +501,7 @@ enum {
 -(void)makeInvulnerable{
 	[invulnerableTimer invalidate];
 	invulnerable = YES;
-	self.invulnerableTimer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(removeInvulnerable) userInfo:nil repeats:NO];
+	self.invulnerableTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(removeInvulnerable) userInfo:nil repeats:NO];
 }
 
 -(void)removeInvulnerable{
@@ -573,6 +592,8 @@ enum {
 						CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"(TAP to continue)" fontName:@"Marker Felt" fontSize:34];
 						label2.position = ccp(self.contentSize.width/2, self.contentSize.height/2 - 30);
 						
+						[[self.parent getChildByTag:3] unschedule:@selector(updateTime:)];
+						
 						CCNode *node = [OverlayLayer node];
 						[node addChild:label1];
 						[node addChild:label2];
@@ -586,8 +607,6 @@ enum {
 						
 					}
 					else {
-						
-					
 						CCLabelTTF *label = [CCLabelTTF labelWithString:@"Ouch !!!!" fontName:@"Marker Felt" fontSize:30];
 						label.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
 						[self addChild:label];
@@ -632,6 +651,15 @@ enum {
 					
 				}
 				if (collisionSprite.tag == kTagShield) {
+					for(int i=0;i<2;i++){
+						CCParticleSystem *emitter = [[[CCParticleFlower alloc] initWithTotalParticles:15] autorelease];
+						CCSprite *spr = (CCSprite *)[self getChildByTag:1];
+						[spr addChild:emitter z:2];
+						emitter.texture = [[CCTextureCache sharedTextureCache] addImage: @"fire-grayscale.png"];
+						emitter.position = ccp(spr.contentSize.width/2,spr.contentSize.height/2);
+						emitter.life = 2;
+						emitter.duration = 4;
+					}
 					[self makeInvulnerable];
 				}
 				toDestroy.push_back(collisionBody);
@@ -686,7 +714,7 @@ enum {
 				NSLog(@"jump");
 				game.playerStatus = PlayerStatusJumping;
 				CCSprite *actor = (CCSprite *)[self getChildByTag:kTagActor];
-				id action = [CCSequence actions: [CCJumpBy actionWithDuration:1.5 position:ccp(0,0) height:200 jumps:1], 
+				id action = [CCSequence actions: [CCJumpBy actionWithDuration:1.5 position:ccp(0,0) height:150 jumps:1], 
 							 [CCCallFuncN actionWithTarget:self selector:@selector(jumpDone)],nil];
 				[actor runAction:action];
 			}
@@ -744,7 +772,10 @@ enum {
 	if (gameOver) {
 		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"GameModel"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
-		[[CCDirector sharedDirector] replaceScene:[MenuLayer node]];
+		CCScene *menuScene = [CCScene node];
+		MenuLayer *menuLayer = [MenuLayer node];
+		[menuScene addChild:menuLayer z:0 tag:0];
+		[[CCDirector sharedDirector] replaceScene:menuScene];
 	}
 }
 

@@ -42,7 +42,7 @@
 		[self addChild:gameTitle z:0 tag:1];
 		
 		CCLabelTTF *helpText = [CCLabelTTF labelWithString:@"A boy is on the way to his school to give his exam. On the way he heards\n"
-								"about the Nepal Bandh. But he has to reach his school to give his exam on time."
+								"about the Nepal Bandh. But he has to reach his school to give his exam overcoming different obstacles."
 								
 												dimensions:CGSizeMake(winSize.width / 2 + winSize.width / 4, 200) 
 												 alignment:UITextAlignmentCenter		
@@ -175,7 +175,6 @@
 		[self removeChild:[self getChildByTag:2] cleanup:YES];		
 		
 		CCLabelTTF *helpText = [CCLabelTTF labelWithString:@"Swipe up on the screen to Jump the Obstacles and grab the collectables!\n"
-								"Swipe down on the screen to dodge down from the bricks."
 								
 												dimensions:CGSizeMake(winSize.width / 2 + winSize.width / 4, 200) 
 												 alignment:UITextAlignmentCenter		
