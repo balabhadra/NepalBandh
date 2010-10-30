@@ -5,7 +5,7 @@
 	<key>1 - 1</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>10</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
@@ -18,7 +18,7 @@
 	<key>1 - 2</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>10</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
@@ -31,7 +31,7 @@
 	<key>1 - 3</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>10</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<real>0.1</real>
 		<key>CollectableGenerationProbability</key>
@@ -44,7 +44,7 @@
 	<key>1 - 4</key>
 	<dict>
 		<key>Duration</key>
-		<integer>90</integer>
+		<integer>10</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<real>0.06</real>
 		<key>CollectableGenerationProbability</key>
@@ -57,7 +57,7 @@
 	<key>1 - 5</key>
 	<dict>
 		<key>Duration</key>
-		<integer>90</integer>
+		<integer>10</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<real>0.06</real>
 		<key>CollectableGenerationProbability</key>

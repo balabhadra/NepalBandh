@@ -90,16 +90,14 @@
 //			if([[GameResource sharedResource] isMusicOn]  && restoreBGMusic)
 //				[[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
 			[[self getChildByTag:6] setVisible:YES];
-//			[(CCLayer *)[self.parent getChildByTag:1] setIsTouchEnabled:YES];
-//			[(CCLayer *)[self.parent getChildByTag:1] setVisible:YES];
-//			[(CCLayer *)[self.parent getChildByTag:2] setVisible:YES];
 			[self removeChildByTag:7 cleanup:YES];
 			break;
 		case 1:
 		{
-//			[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-//			[[NSNotificationCenter defaultCenter] postNotificationName:@"SaveGame" object:nil];
-//			[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SavedData"];
+			GameModel *game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game];
+			NSData	*theData =  [NSKeyedArchiver archivedDataWithRootObject:game];
+			[[NSUserDefaults standardUserDefaults] setObject:theData forKey:@"GameModel"];
+			[[NSUserDefaults standardUserDefaults] synchronize];
 			CCScene *menuScene = [CCScene node];
 			MenuLayer *menuLayer = [MenuLayer node];
 			[menuScene addChild:menuLayer z:0 tag:0];

@@ -68,7 +68,7 @@
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
 	[[NSUserDefaults standardUserDefaults] setInteger:[sender selectedIndex] forKey:@"sound"];
-	NSLog(@"Value: %d\n", [[NSUserDefaults standardUserDefaults] integerForKey:@"sound"]);
+	[[NSUserDefaults standardUserDefaults] synchronize];
 //	if([GameResource sharedResource].isMusicOn)
 //		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[GameResource sharedResource].themeSound];
 //	else 
