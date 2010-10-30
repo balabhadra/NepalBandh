@@ -13,6 +13,7 @@
 #import "BackgroundLayer.h"
 #import "HouseLayer.h"
 #import	"HUDLayer.h"
+#import "MenuLayer.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -37,6 +38,8 @@ enum {
 
 // HelloWorld implementation
 @implementation HelloWorld
+
+@synthesize invulnerableTimer;
 
 // initialize your instance here
 -(id) init
@@ -363,16 +366,26 @@ enum {
 	if(!recentMovingEnemySpawn){
 		recentMovingEnemySpawn = [self spawnMovingEnemy];
 		if (recentMovingEnemySpawn) {
-			[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(movingEnemySpawnExpired) userInfo:nil repeats:NO];
+			[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(movingEnemySpawnExpired) userInfo:nil repeats:NO];
 		}
 	}
 	
 	if(!recentStaticEnemySpawn) {
 		recentStaticEnemySpawn = [self spawnStaticEnemy];
 		if (recentStaticEnemySpawn) {
-			[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(staticEnemySpawnExpired) userInfo:nil repeats:NO];
+			[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(staticEnemySpawnExpired) userInfo:nil repeats:NO];
 		}
 	}
+}
+
+-(void)makeInvulnerable{
+	[invulnerableTimer invalidate];
+	invulnerable = YES;
+	self.invulnerableTimer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(removeInvulnerable) userInfo:nil repeats:NO];
+}
+
+-(void)removeInvulnerable{
+	invulnerable = NO;
 }
 
 -(void) tick: (ccTime) dt
@@ -413,6 +426,7 @@ enum {
     // gathered with our custom contact listener...
 	std::vector<b2Body *>toDestroy;
     std::vector<MyContact>::iterator pos;
+	HUDLayer *hud = (HUDLayer *)[self.parent getChildByTag:3]; 
     for(pos = _contactListener->_contacts.begin(); pos != _contactListener->_contacts.end(); ++pos) {
         MyContact contact = *pos;
         
@@ -424,19 +438,94 @@ enum {
             CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
             
             CCSprite *collisionSprite;
+			b2Body *collisionBody;
             if (spriteA.tag == 1) {
 				collisionSprite = spriteB;
+				collisionBody = bodyB;
             } 
 			else if(spriteB.tag == 1){
 				collisionSprite = spriteA;
+				collisionBody = bodyA;
 			}
 			
 			if (collisionSprite.tag >=200) {
-				NSLog(@"Bad collision");
+				if(!invulnerable){
+					NSLog(@"Bad collision");
+					game.lives--;
+					[hud increaseLives:NO];
+					if (game.lives < 1) {
+						gameOver = YES;
+						for(CCSprite * spr in [[self.parent getChildByTag:1] children]){
+							[spr stopAllActions];
+						}
+						
+						for(CCSprite * spr in [self children]){
+							[spr stopAllActions];
+						}
+						[[self.parent getChildByTag:3] removeChildByTag:6 cleanup:YES];
+						[self unschedule:@selector(tick:)];
+						[self unschedule:@selector(spawnObjects:)];
+						CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Game Over"] fontName:@"Marker Felt" fontSize:40];
+						label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 30);
+						CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"(TAP to continue)" fontName:@"Marker Felt" fontSize:34];
+						label2.position = ccp(self.contentSize.width/2, self.contentSize.height/2 - 30);
+						
+						CCNode *node = [OverlayLayer node];
+						[node addChild:label1];
+						[node addChild:label2];
+						[self addChild:node];
+						
+						[game reset];
+						[game nextLevel];
+						
+					}
+					else {
+						CCLabelTTF *label = [CCLabelTTF labelWithString:@"Ouch !!!!" fontName:@"Marker Felt" fontSize:30];
+						label.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+						[self addChild:label];
+						id dl = [CCDelayTime actionWithDuration:2];
+						[label runAction: [CCSequence actions:dl,[CCFadeOut actionWithDuration:2],nil]];
+					}
+
+
+
+					//for(CCSprite * spr in [[self.parent getChildByTag:1] children]){
+//						[[CCActionManager sharedManager] pauseTarget:spr]; 
+//					}
+					
+					for(CCSprite * spr in [self children]){
+						if (spr.tag == 1) {
+							NSLog(@"sdfsd");
+						}
+						else{
+							//[[CCActionManager sharedManager] pauseTarget:spr];
+						}
+					}
+					//[self unschedule:@selector(spawnObjects:)];
+					
+					//stop further collision detection by changing the tag
+					[self makeInvulnerable];
+					//show falling animation
+				}
 			}
 			else if (collisionSprite.tag >=100){
 				NSLog(@"Good collision");
-				//toDestroy.push_back(bodyA);
+				if (collisionSprite.tag == kTagLife) {
+					if (game.lives<5) {
+						game.lives++;
+						[hud increaseLives:YES];
+					}
+				}
+				if (collisionSprite.tag == kTagSpeed) {
+					
+				}
+				if (collisionSprite.tag == kTagTime) {
+					
+				}
+				if (collisionSprite.tag == kTagShield) {
+					
+				}
+				toDestroy.push_back(collisionBody);
 			}  
 		}
     }
@@ -463,6 +552,10 @@ enum {
 	
 }
 
+-(void)jumpDone{
+	game.playerStatus = PlayerStatusMoving;
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	touchLocation = [touch locationInView: [touch view]];
@@ -483,7 +576,8 @@ enum {
 				NSLog(@"jump");
 				game.playerStatus = PlayerStatusJumping;
 				CCSprite *actor = (CCSprite *)[self getChildByTag:kTagActor];
-				id action = [CCJumpBy actionWithDuration:2 position:ccp(0,0) height:200 jumps:1];
+				id action = [CCSequence actions: [CCJumpBy actionWithDuration:2 position:ccp(0,0) height:200 jumps:1], 
+							 [CCCallFuncN actionWithTarget:self selector:@selector(jumpDone)],nil];
 				[actor runAction:action];
 			}
 			else {
@@ -514,6 +608,9 @@ enum {
 		[playScene addChild:hudLayer z:3 tag:3];
 		
 		[[CCDirector sharedDirector] replaceScene:playScene];
+	}
+	if (gameOver) {
+		[[CCDirector sharedDirector] replaceScene:[MenuLayer node]];
 	}
 }
 

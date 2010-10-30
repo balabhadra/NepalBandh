@@ -30,7 +30,12 @@
 	BOOL recentStaticEnemySpawn;
 	BOOL recentMovingEnemySpawn;
 	BOOL levelCompleted;
+	BOOL invulnerable;
+	BOOL gameOver;
+	NSTimer *invulnerableTimer;
 }
+
+@property (nonatomic, retain) NSTimer *invulnerableTimer; 
 
 
 

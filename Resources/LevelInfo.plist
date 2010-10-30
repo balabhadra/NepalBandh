@@ -5,41 +5,41 @@
 	<key>1 - 1</key>
 	<dict>
 		<key>Duration</key>
-		<integer>25</integer>
+		<integer>60</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.03</real>
-		<key>StaticEnemyGenerationProbability</key>
 		<real>0.08</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.2</real>
 		<key>Speed</key>
-		<integer>30</integer>
+		<integer>40</integer>
 	</dict>
 	<key>1 - 2</key>
 	<dict>
 		<key>Duration</key>
-		<integer>75</integer>
+		<integer>60</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.03</real>
-		<key>StaticEnemyGenerationProbability</key>
 		<real>0.08</real>
+		<key>StaticEnemyGenerationProbability</key>
+		<real>0.2</real>
 		<key>Speed</key>
-		<integer>23</integer>
+		<integer>45</integer>
 	</dict>
 	<key>1 - 3</key>
 	<dict>
 		<key>Duration</key>
-		<integer>75</integer>
+		<integer>60</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<real>0.05</real>
+		<real>0.1</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.03</real>
+		<real>0.06</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.08</real>
+		<real>0.25</real>
 		<key>Speed</key>
-		<integer>26</integer>
+		<integer>50</integer>
 	</dict>
 	<key>1 - 4</key>
 	<dict>
@@ -52,7 +52,7 @@
 		<key>StaticEnemyGenerationProbability</key>
 		<real>0.08</real>
 		<key>Speed</key>
-		<integer>28</integer>
+		<integer>55</integer>
 	</dict>
 	<key>1 - 5</key>
 	<dict>
@@ -65,7 +65,7 @@
 		<key>StaticEnemyGenerationProbability</key>
 		<real>0.08</real>
 		<key>Speed</key>
-		<integer>30</integer>
+		<integer>60</integer>
 	</dict>
 </dict>
 </plist>
