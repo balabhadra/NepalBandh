@@ -15,7 +15,7 @@
 	if((self=[super init])){
 		// enable touches
 		self.isTouchEnabled = NO;
-		GameModel *game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game]; 
+		GameModel *game = (GameModel *)[(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game]; 
 		CGFloat animDuration = (1.0f/game.speed)*200;
 		CCSprite *background =[CCSprite spriteWithFile:@"home_town.png"];
 		CCSprite *background1 =[CCSprite spriteWithFile:@"home_town.png"];

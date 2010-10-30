@@ -114,7 +114,7 @@
 	
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"GameModel"]) {
 		NSData *modelData = [[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"];
-		game = (GameModel *)[NSKeyedUnarchiver unarchiveObjectWithData:modelData];
+		self.game = (GameModel *)[NSKeyedUnarchiver unarchiveObjectWithData:modelData];
 	}
 	else {
 		self.game = [[[GameModel alloc] init] autorelease];
@@ -149,6 +149,10 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+	
+	NSData	*theData =  [NSKeyedArchiver archivedDataWithRootObject:game];
+	[[NSUserDefaults standardUserDefaults] setObject:theData forKey:@"GameModel"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	[[director openGLView] removeFromSuperview];

@@ -259,7 +259,23 @@ enum {
 		return;
     } 
 	else if(sprite.tag == kTagThorn) {
-      
+		b2PolygonShape spriteShape;
+		NSInteger num = 5;
+		b2Vec2 verts[] = {b2Vec2(11.0f / PTM_RATIO, -47.0f / PTM_RATIO),
+			b2Vec2(12.0f / PTM_RATIO, 8.0f / PTM_RATIO),
+			b2Vec2(10.0f / PTM_RATIO, 30.0f / PTM_RATIO),
+			b2Vec2(-2.0f / PTM_RATIO, 40.0f / PTM_RATIO),
+			b2Vec2(-13.0f / PTM_RATIO, -45.0f / PTM_RATIO)};
+		spriteShape.Set(verts, num);
+		
+		b2FixtureDef spriteShapeDef;
+		spriteShapeDef.shape = &spriteShape;
+		spriteShapeDef.density = 10.0;
+		spriteShapeDef.isSensor = true;
+		
+		spriteBody->CreateFixture(&spriteShapeDef);
+		return;
+		
     }
 	else if(sprite.tag == kTagTyre) {
         
@@ -285,10 +301,8 @@ enum {
 			sprite_tag = kTagStone; 
 			break;
 		case EnemyThorn:
-			spriteName = @"enemy_stone.png";
-			sprite_tag = kTagStone; 
-			//spriteName = @"enemy_thorn.png";
-			//sprite_tag = kTagThorn;
+			spriteName = @"enemy_thorn.png";
+			sprite_tag = kTagThorn;
 			break;
 		case EnemyFire:
 			spriteName = @"enemy_stone.png";
@@ -493,7 +507,7 @@ enum {
 						CCLabelTTF *label = [CCLabelTTF labelWithString:@"Ouch !!!!" fontName:@"Marker Felt" fontSize:30];
 						label.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
 						[self addChild:label];
-						id dl = [CCDelayTime actionWithDuration:2];
+						id dl = [CCDelayTime actionWithDuration:1];
 						[label runAction: [CCSequence actions:dl,[CCFadeOut actionWithDuration:2],nil]];
 					}
 
@@ -607,24 +621,54 @@ enum {
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 	if(levelCompleted){
-		[game nextLevel];
-		self.isTouchEnabled = NO;
-		CCScene *playScene = [CCScene node];
-		BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-		HouseLayer *houseLayer = [HouseLayer node];
-		HUDLayer *hudLayer = [HUDLayer node];
-		HelloWorld *gameLayer = [HelloWorld node];
-		
-		[playScene addChild:backgroundLayer z:0 tag:0];
-		[playScene addChild:houseLayer z:1 tag:1];
-		[playScene addChild:gameLayer z:2 tag:2];
-		[playScene addChild:hudLayer z:3 tag:3];
-		
-		[[CCDirector sharedDirector] replaceScene:playScene];
+		if([game nextLevel]){
+			self.isTouchEnabled = NO;
+			CCScene *playScene = [CCScene node];
+			BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+			HouseLayer *houseLayer = [HouseLayer node];
+			HUDLayer *hudLayer = [HUDLayer node];
+			HelloWorld *gameLayer = [HelloWorld node];
+			
+			[playScene addChild:backgroundLayer z:0 tag:0];
+			[playScene addChild:houseLayer z:1 tag:1];
+			[playScene addChild:gameLayer z:2 tag:2];
+			[playScene addChild:hudLayer z:3 tag:3];
+			
+			[[CCDirector sharedDirector] replaceScene:playScene];
+		}
+		else {
+			[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"GameModel"];
+			[[NSUserDefaults standardUserDefaults] synchronize];
+			self.isTouchEnabled = NO;
+			CCScene *finishScene = [CCScene node];
+			BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+			CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Congratulation!! You completed the game"] fontName:@"Marker Felt" fontSize:25];
+			label1.color = ccBLACK;
+			label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 100);
+			[backgroundLayer addChild:label1];
+			
+			CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu" fontName:@"Marker Felt" fontSize:35];
+			CCMenuItemLabel *backItem = [CCMenuItemLabel itemWithLabel:label target:self selector:@selector(goBack:)];
+			CCMenu *back = [CCMenu menuWithItems:backItem, nil];
+			back.position = ccp (self.contentSize.width / 2, self.contentSize.height/2 - 100);
+			[backgroundLayer addChild:back];
+			[finishScene addChild:backgroundLayer z:0 tag:0];
+			[[CCDirector sharedDirector] replaceScene:finishScene];
+		}
+
 	}
 	if (gameOver) {
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"GameModel"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
 		[[CCDirector sharedDirector] replaceScene:[MenuLayer node]];
 	}
+}
+
+- (void)goBack:(id)sender {
+	CCScene *menuScene = [CCScene node];
+	MenuLayer *menuLayer = [MenuLayer node];
+	[menuScene addChild:menuLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:menuScene];
 }
 
 

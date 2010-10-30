@@ -19,6 +19,7 @@
 #import "HelloWorldScene.h"
 #import "OptionLayer.h"
 #import "HighScoreLayer.h"
+#import "NepalBandhAppDelegate.h"
 
 @implementation MenuLayer
 //setup view for main menu
@@ -105,6 +106,9 @@
 - (void)play{
 	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	GameModel *game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game];
+	[game reset];
+	[game nextLevel];
 	CCScene *playScene = [CCScene node];
 	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
 	HouseLayer *houseLayer = [HouseLayer node];
@@ -117,30 +121,22 @@
 	[playScene addChild:hudLayer z:3 tag:3];
 	
 	[[CCDirector sharedDirector] replaceScene:playScene];
-//	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
 //clicked on continue menu item. Continues a saved game.
 - (void)onContinue:(id)sender{
-	//[FlurryAPI logEvent: @"Continue"];
-//	NSData *boardMatrixData = [[NSUserDefaults standardUserDefaults] dataForKey:@"boardMatrix"];
-//	BoardMatrix *savedBoardMatrix = (BoardMatrix *)[NSKeyedUnarchiver unarchiveObjectWithData:boardMatrixData];
-//	if([GameResource sharedResource].isEffectOn)
-//		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *playScene = [CCScene node];
-//	BoardMatrixLayer *boardMatrixLayer = [[[BoardMatrixLayer alloc] initWithBoardMatrix:savedBoardMatrix isContinue:YES] autorelease];
-//	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-//	PearlLayer *pearlLayer = [[[PearlLayer alloc] initWithBoardMatrix:savedBoardMatrix isContinue:YES] autorelease];
-//	PauseLayer *pauseLayer = [PauseLayer node];
-//	pearlLayer.backgroundLayer = backgroundLayer;
-//	
-//	[playScene addChild:backgroundLayer z:0 tag:0];
-//	[playScene addChild:boardMatrixLayer z:1 tag:1];
-//	[playScene addChild:pearlLayer z:2 tag:2];
-//	[playScene addChild:pauseLayer z:3 tag:3];
-//	
-//	[[CCDirector sharedDirector] replaceScene:playScene];
-//	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	CCScene *playScene = [CCScene node];
+	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+	HouseLayer *houseLayer = [HouseLayer node];
+	HUDLayer *hudLayer = [HUDLayer node];
+	HelloWorld *gameLayer = [HelloWorld node];
+	
+	[playScene addChild:backgroundLayer z:0 tag:0];
+	[playScene addChild:houseLayer z:1 tag:1];
+	[playScene addChild:gameLayer z:2 tag:2];
+	[playScene addChild:hudLayer z:3 tag:3];
+	
+	[[CCDirector sharedDirector] replaceScene:playScene];
 }
 
 //clicked on play menu item. Shows confirmation if a game is previously saved otherwise starts a new game.
