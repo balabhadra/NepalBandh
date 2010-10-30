@@ -197,16 +197,18 @@ enum {
 	NSInteger sprite_tag;
 	switch ([game getCollectableType]) {
 		case CollectableSpeed:
-			spriteName = @"bonus_speed.png";
-			sprite_tag = kTagSpeed; 
+			//No time for speed bonus. Change it to life
+			spriteName = @"bonus_life.png";
+			sprite_tag = kTagLife; 
 			break;
 		case CollectableLife:
 			spriteName = @"bonus_life.png";
 			sprite_tag = kTagLife; 
 			break;
 		case CollectableTime:
-			spriteName = @"bonus_time.png";
-			sprite_tag = kTagTime;
+			//No time for time bonus. Change it to shield
+			spriteName = @"bonus_shield.png";
+			sprite_tag = kTagShield;
 			break;
 		case CollectableInvulnerability:
 			spriteName = @"bonus_shield.png";
@@ -537,7 +539,7 @@ enum {
 					
 				}
 				if (collisionSprite.tag == kTagShield) {
-					
+					[self makeInvulnerable];
 				}
 				toDestroy.push_back(collisionBody);
 			}  
@@ -590,7 +592,7 @@ enum {
 				NSLog(@"jump");
 				game.playerStatus = PlayerStatusJumping;
 				CCSprite *actor = (CCSprite *)[self getChildByTag:kTagActor];
-				id action = [CCSequence actions: [CCJumpBy actionWithDuration:2 position:ccp(0,0) height:200 jumps:1], 
+				id action = [CCSequence actions: [CCJumpBy actionWithDuration:1.5 position:ccp(0,0) height:200 jumps:1], 
 							 [CCCallFuncN actionWithTarget:self selector:@selector(jumpDone)],nil];
 				[actor runAction:action];
 			}
