@@ -208,7 +208,7 @@
 		[self removeChild:[self getChildByTag:2] cleanup:YES];		
 		
 		CCLabelTTF *helpText = [CCLabelTTF labelWithString:@"Life Bonus    "
-								"Time Bonus    Shield     Speed Booster"
+								"	Shield     "
 								
 												dimensions:CGSizeMake(winSize.width / 2 + winSize.width / 3 + 20, 190) 
 												 alignment:UITextAlignmentLeft		
@@ -226,16 +226,16 @@
 		[self addChild:lifeBonus z:1 tag:6];
 		
 		CCSprite *shieldBonus = [CCSprite spriteWithFile:@"bonus_shield.png"];
-		shieldBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + 2 * spaceOffset - 15, winSize.height / 2 - 25);
+		shieldBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + spaceOffset - 15, winSize.height / 2 - 25);
 		[self addChild:shieldBonus z: 1 tag:7];
 		
-		CCSprite *speedBonus = [CCSprite spriteWithFile:@"bonus_speed.png"];
-		speedBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + 3 * spaceOffset - 15, winSize.height / 2 - 25);
-		[self addChild:speedBonus z: 1 tag:8];
-
-		CCSprite *timeBonus = [CCSprite spriteWithFile:@"bonus_time.png"];
-		timeBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + spaceOffset, winSize.height / 2 - 25);
-		[self addChild:timeBonus z: 1 tag:9];
+//		CCSprite *speedBonus = [CCSprite spriteWithFile:@"bonus_speed.png"];
+//		speedBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + 3 * spaceOffset - 15, winSize.height / 2 - 25);
+//		[self addChild:speedBonus z: 1 tag:8];
+//
+//		CCSprite *timeBonus = [CCSprite spriteWithFile:@"bonus_time.png"];
+//		timeBonus.position = ccp(lifeBonus.contentSize.width + margin + leftOffset + spaceOffset, winSize.height / 2 - 25);
+//		[self addChild:timeBonus z: 1 tag:9];
 		
 		
 		// Buttons

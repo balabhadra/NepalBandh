@@ -7,7 +7,18 @@
 		<key>jump0001.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{405, 162}, {100, 160}}</string>
+			<string>{{203, 1}, {100, 160}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>sourceColorRect</key>
+			<string>{{18, 58}, {69, 100}}</string>
+			<key>sourceSize</key>
+			<string>{100, 160}</string>
+		</dict>
+		<key>jump00010.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 1}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -18,7 +29,7 @@
 		<key>jump0002.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{203, 162}, {100, 160}}</string>
+			<string>{{102, 1}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -29,7 +40,7 @@
 		<key>jump0003.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 162}, {100, 160}}</string>
+			<string>{{102, 162}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -40,7 +51,7 @@
 		<key>jump0004.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{102, 1}, {100, 160}}</string>
+			<string>{{304, 1}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -51,7 +62,7 @@
 		<key>jump0005.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{405, 1}, {100, 160}}</string>
+			<string>{{1, 162}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -62,7 +73,7 @@
 		<key>jump0006.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 1}, {100, 160}}</string>
+			<string>{{304, 162}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -73,7 +84,7 @@
 		<key>jump0007.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{304, 162}, {100, 160}}</string>
+			<string>{{405, 162}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -84,7 +95,7 @@
 		<key>jump0008.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{304, 1}, {100, 160}}</string>
+			<string>{{203, 162}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
@@ -95,22 +106,11 @@
 		<key>jump0009.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{102, 162}, {100, 160}}</string>
+			<string>{{405, 1}, {100, 160}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>sourceColorRect</key>
 			<string>{{21, 58}, {64, 96}}</string>
-			<key>sourceSize</key>
-			<string>{100, 160}</string>
-		</dict>
-		<key>jump0010.png</key>
-		<dict>
-			<key>frame</key>
-			<string>{{203, 1}, {100, 160}}</string>
-			<key>offset</key>
-			<string>{0, 0}</string>
-			<key>sourceColorRect</key>
-			<string>{{18, 58}, {69, 100}}</string>
 			<key>sourceSize</key>
 			<string>{100, 160}</string>
 		</dict>
