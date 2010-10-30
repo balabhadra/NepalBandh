@@ -28,6 +28,17 @@
 		self.isTouchEnabled = YES;
 		screenSize = [CCDirector sharedDirector].winSize;
 		
+		// Sound Preloading
+		
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menuMusic.mp3"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"bonus.wav"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"dead.wav"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"dodge.mp3"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"jump.mp3"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"click.wav"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"levelComplete.wav"];
+		[[SimpleAudioEngine sharedEngine] preloadEffect:@"Ouch.wav"];
+		
 		CCSprite *background =[CCSprite spriteWithFile:@"menuBackground.png"];
 		background.position = ccp(screenSize.width/2,screenSize.height/2);
 		[self addChild:background];
@@ -92,6 +103,8 @@
 
 //clicked on yes when confirmation is shown for starting a new game if a previous game is saved. Starts a new game.
 - (void)play{
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 	CCScene *playScene = [CCScene node];
 	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
 	HouseLayer *houseLayer = [HouseLayer node];
@@ -132,6 +145,7 @@
 
 //clicked on play menu item. Shows confirmation if a game is previously saved otherwise starts a new game.
 - (void)onPlay:(id)sender{
+		[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
 	if([[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
@@ -151,6 +165,7 @@
 - (void)onOptions:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+		[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *optionsScene = [CCScene node];
 	OptionLayer *optionsLayer = [OptionLayer node];
 	[optionsScene addChild:optionsLayer z:0 tag:0];
@@ -161,6 +176,7 @@
 - (void)onHighScore:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+		[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *highScoreScene = [CCScene node];
 	HighScoreLayer *highScoreLayer = [HighScoreLayer node];
 	[highScoreScene addChild:highScoreLayer z:0 tag:0];
@@ -171,6 +187,7 @@
 - (void)onHelp:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *helpScene = [CCScene node];
 	HelpLayer *helpLayer = [HelpLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];
@@ -183,6 +200,8 @@
 - (void)onAbout:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+	
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *aboutScene = [CCScene node];
 	AboutLayer *aboutLayer = [AboutLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];

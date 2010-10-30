@@ -8,7 +8,7 @@
 
 #import "OptionLayer.h"
 #import "MenuLayer.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation OptionLayer
 
@@ -66,7 +66,7 @@
 //changed sound option
 -(void) menuCallbackSound: (id) sender{
 //	if([GameResource sharedResource].isEffectOn)
-//		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	[[NSUserDefaults standardUserDefaults] setInteger:[sender selectedIndex] forKey:@"sound"];
 	NSLog(@"Value: %d\n", [[NSUserDefaults standardUserDefaults] integerForKey:@"sound"]);
 //	if([GameResource sharedResource].isMusicOn)

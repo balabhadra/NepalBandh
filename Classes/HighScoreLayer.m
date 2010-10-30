@@ -8,6 +8,7 @@
 
 #import "HighScoreLayer.h"
 #import "MenuLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation HighScoreLayer
 
@@ -207,7 +208,7 @@
 //clicked on back to menu
 - (void)onBack:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
-//		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
+	[[SimpleAudioEngine sharedEngine] playEffect:@"click.wav"];
 	CCScene *menuScene = [CCScene node];
 	MenuLayer *menuLayer = [MenuLayer node];
 	[menuScene addChild:menuLayer z:0 tag:0];
