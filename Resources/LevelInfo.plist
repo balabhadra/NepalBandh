@@ -5,15 +5,15 @@
 	<key>1 - 1</key>
 	<dict>
 		<key>Duration</key>
-		<integer>15</integer>
+		<integer>25</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.1</real>
+		<real>0.03</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.15</real>
+		<real>0.08</real>
 		<key>Speed</key>
-		<integer>10</integer>
+		<integer>30</integer>
 	</dict>
 	<key>1 - 2</key>
 	<dict>
@@ -22,11 +22,11 @@
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.11</real>
+		<real>0.03</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.15</real>
+		<real>0.08</real>
 		<key>Speed</key>
-		<integer>13</integer>
+		<integer>23</integer>
 	</dict>
 	<key>1 - 3</key>
 	<dict>
@@ -35,37 +35,37 @@
 		<key>MovingEnemyGenerationProbability</key>
 		<real>0.05</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.12</real>
+		<real>0.03</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.24</real>
+		<real>0.08</real>
 		<key>Speed</key>
-		<integer>16</integer>
+		<integer>26</integer>
 	</dict>
 	<key>1 - 4</key>
 	<dict>
 		<key>Duration</key>
 		<integer>90</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<real>0.08</real>
+		<real>0.06</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.012</real>
+		<real>0.04</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.026</real>
+		<real>0.08</real>
 		<key>Speed</key>
-		<integer>18</integer>
+		<integer>28</integer>
 	</dict>
 	<key>1 - 5</key>
 	<dict>
 		<key>Duration</key>
 		<integer>90</integer>
 		<key>MovingEnemyGenerationProbability</key>
-		<real>0.08</real>
+		<real>0.06</real>
 		<key>CollectableGenerationProbability</key>
-		<real>0.012</real>
+		<real>0.04</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.026</real>
+		<real>0.08</real>
 		<key>Speed</key>
-		<integer>20</integer>
+		<integer>30</integer>
 	</dict>
 </dict>
 </plist>

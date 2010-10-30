@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F3B9A2D0EF2145700286867 /* NepalBandhAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* NepalBandhAppDelegate.mm */; };
+		22142521127B407500B2A68E /* OptionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22142520127B407500B2A68E /* OptionLayer.m */; };
+		22142524127B408700B2A68E /* HighScoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22142523127B408700B2A68E /* HighScoreLayer.m */; };
+		22142533127B414400B2A68E /* HelpLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22142532127B414400B2A68E /* HelpLayer.m */; };
+		22142536127B416800B2A68E /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22142535127B416800B2A68E /* MenuLayer.mm */; };
+		2279B9A6127B403E00C540B2 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2279B9A5127B403E00C540B2 /* AboutLayer.m */; };
 		22A0E4B2127ABA510016AEFB /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E4B1127ABA510016AEFB /* heart.png */; };
 		22A0E590127ACEE80016AEFB /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E58F127ACEE80016AEFB /* clock.png */; };
 		22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E5B8127AD1A80016AEFB /* pauseButton_on.png */; };
 		22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E5B9127AD1A80016AEFB /* pauseButton.png */; };
+		22A0E6FE127AFA710016AEFB /* fire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E6FC127AFA710016AEFB /* fire.plist */; };
+		22A0E6FF127AFA710016AEFB /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E6FD127AFA710016AEFB /* fire.png */; };
+		22A0E702127AFC210016AEFB /* frontBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E701127AFC210016AEFB /* frontBackground.png */; };
 		504DFC0610AF1414006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC0010AF1414006D82FE /* CLScoreServerPost.h */; };
 		504DFC0710AF1414006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFC0110AF1414006D82FE /* CLScoreServerPost.m */; };
 		504DFC0810AF1414006D82FE /* CLScoreServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC0210AF1414006D82FE /* CLScoreServerRequest.h */; };
@@ -152,7 +160,6 @@
 		9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2DD127A89AA007A0377 /* HUDLayer.m */; };
 		9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */; };
 		9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E3127A89E0007A0377 /* HeroLayer.m */; };
-		9AA0B2E8127A8A2B007A0377 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */; };
 		9AA0B314127A91D7007A0377 /* menuSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B310127A91D7007A0377 /* menuSelected.png */; };
 		9AA0B315127A91D7007A0377 /* menuSelected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B311127A91D7007A0377 /* menuSelected.plist */; };
 		9AA0B316127A91D7007A0377 /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B312127A91D7007A0377 /* menu.plist */; };
@@ -161,7 +168,6 @@
 		9AA0B31C127A965D007A0377 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B31B127A965D007A0377 /* menuBackground.png */; };
 		9AA0B321127A96D9007A0377 /* ScrollableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B31E127A96D9007A0377 /* ScrollableLayer.m */; };
 		9AA0B322127A96D9007A0377 /* AlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B320127A96D9007A0377 /* AlertLayer.m */; };
-		9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B385127A9D4B007A0377 /* AboutLayer.m */; };
 		9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B3FA127ABEE5007A0377 /* GameModel.m */; };
 		9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B413127AC6E6007A0377 /* LevelInfo.plist */; };
 		9AA0B48C127AE436007A0377 /* bonus_life.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B489127AE436007A0377 /* bonus_life.png */; };
@@ -363,10 +369,23 @@
 		1F3B9A2B0EF2145700286867 /* NepalBandhAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NepalBandhAppDelegate.mm; sourceTree = "<group>"; };
 		1F3B9A2C0EF2145700286867 /* NepalBandhAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NepalBandhAppDelegate.h; path = Classes/NepalBandhAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* NepalBandh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NepalBandh_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		2214251F127B407500B2A68E /* OptionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionLayer.h; sourceTree = "<group>"; };
+		22142520127B407500B2A68E /* OptionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionLayer.m; sourceTree = "<group>"; };
+		22142522127B408700B2A68E /* HighScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreLayer.h; sourceTree = "<group>"; };
+		22142523127B408700B2A68E /* HighScoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreLayer.m; sourceTree = "<group>"; };
+		22142531127B414400B2A68E /* HelpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		22142532127B414400B2A68E /* HelpLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpLayer.m; sourceTree = "<group>"; };
+		22142534127B416800B2A68E /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		22142535127B416800B2A68E /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
+		2279B9A4127B403E00C540B2 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
+		2279B9A5127B403E00C540B2 /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
 		22A0E4B1127ABA510016AEFB /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		22A0E58F127ACEE80016AEFB /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		22A0E5B8127AD1A80016AEFB /* pauseButton_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton_on.png; sourceTree = "<group>"; };
 		22A0E5B9127AD1A80016AEFB /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
+		22A0E6FC127AFA710016AEFB /* fire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fire.plist; sourceTree = "<group>"; };
+		22A0E6FD127AFA710016AEFB /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		22A0E701127AFC210016AEFB /* frontBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frontBackground.png; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		504DFC0010AF1414006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
 		504DFC0110AF1414006D82FE /* CLScoreServerPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLScoreServerPost.m; sourceTree = "<group>"; };
@@ -511,8 +530,8 @@
 		9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectablesLayer.m; sourceTree = "<group>"; };
 		9AA0B2E2127A89E0007A0377 /* HeroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroLayer.h; sourceTree = "<group>"; };
 		9AA0B2E3127A89E0007A0377 /* HeroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroLayer.m; sourceTree = "<group>"; };
-		9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
-		9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
+		9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuLayer.h; path = /Users/sts101/Desktop/NepalBandh/Classes/MenuLayer.h; sourceTree = "<absolute>"; };
+		9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuLayer.mm; path = /Users/sts101/Desktop/NepalBandh/Classes/MenuLayer.mm; sourceTree = "<absolute>"; };
 		9AA0B310127A91D7007A0377 /* menuSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuSelected.png; sourceTree = "<group>"; };
 		9AA0B311127A91D7007A0377 /* menuSelected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuSelected.plist; sourceTree = "<group>"; };
 		9AA0B312127A91D7007A0377 /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -523,8 +542,6 @@
 		9AA0B31E127A96D9007A0377 /* ScrollableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollableLayer.m; sourceTree = "<group>"; };
 		9AA0B31F127A96D9007A0377 /* AlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertLayer.h; sourceTree = "<group>"; };
 		9AA0B320127A96D9007A0377 /* AlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertLayer.m; sourceTree = "<group>"; };
-		9AA0B384127A9D4B007A0377 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
-		9AA0B385127A9D4B007A0377 /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
 		9AA0B3F9127ABEE5007A0377 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		9AA0B3FA127ABEE5007A0377 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		9AA0B413127AC6E6007A0377 /* LevelInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelInfo.plist; sourceTree = "<group>"; };
@@ -763,6 +780,7 @@
 		22A0E416127AA1380016AEFB /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				22A0E701127AFC210016AEFB /* frontBackground.png */,
 				9AA0B31B127A965D007A0377 /* menuBackground.png */,
 				9AA0B310127A91D7007A0377 /* menuSelected.png */,
 				9AA0B311127A91D7007A0377 /* menuSelected.plist */,
@@ -799,6 +817,24 @@
 				9AA0B2D0127A87E3007A0377 /* hud.png */,
 			);
 			name = HUD;
+			sourceTree = "<group>";
+		};
+		22A0E700127AFA750016AEFB /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				22A0E6FC127AFA710016AEFB /* fire.plist */,
+				22A0E6FD127AFA710016AEFB /* fire.png */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
+		22A0E84C127B0DE00016AEFB /* Menu Layers */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */,
+				9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */,
+			);
+			name = "Menu Layers";
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -845,6 +881,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22A0E84C127B0DE00016AEFB /* Menu Layers */,
 				9AA0B2E9127A8A30007A0377 /* Other Layers */,
 				9AA0B2E5127A89F1007A0377 /* Game Layers */,
 				E0F81061120A17DF005866B8 /* GameConfig.h */,
@@ -1098,6 +1135,7 @@
 		50F4144210692EE7002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22A0E700127AFA750016AEFB /* Animation */,
 				22A0E416127AA1380016AEFB /* MainMenu */,
 				22A0E420127AA1940016AEFB /* GameView */,
 				9AA0B318127A9548007A0377 /* Icon.png */,
@@ -1133,14 +1171,20 @@
 			children = (
 				9A739D5B127B492C0074C7F0 /* OverlayLayer.h */,
 				9A739D5C127B492C0074C7F0 /* OverlayLayer.m */,
+				22142531127B414400B2A68E /* HelpLayer.h */,
+				22142532127B414400B2A68E /* HelpLayer.m */,
+				22142534127B416800B2A68E /* MenuLayer.h */,
+				22142535127B416800B2A68E /* MenuLayer.mm */,
+				2279B9A4127B403E00C540B2 /* AboutLayer.h */,
+				2279B9A5127B403E00C540B2 /* AboutLayer.m */,
 				9AA0B31D127A96D9007A0377 /* ScrollableLayer.h */,
 				9AA0B31E127A96D9007A0377 /* ScrollableLayer.m */,
 				9AA0B31F127A96D9007A0377 /* AlertLayer.h */,
 				9AA0B320127A96D9007A0377 /* AlertLayer.m */,
-				9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */,
-				9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */,
-				9AA0B384127A9D4B007A0377 /* AboutLayer.h */,
-				9AA0B385127A9D4B007A0377 /* AboutLayer.m */,
+				2214251F127B407500B2A68E /* OptionLayer.h */,
+				22142520127B407500B2A68E /* OptionLayer.m */,
+				22142522127B408700B2A68E /* HighScoreLayer.h */,
+				22142523127B408700B2A68E /* HighScoreLayer.m */,
 			);
 			name = "Other Layers";
 			sourceTree = "<group>";
@@ -1595,6 +1639,9 @@
 				22A0E5BA127AD1A80016AEFB /* pauseButton_on.png in Resources */,
 				22A0E5BB127AD1A80016AEFB /* pauseButton.png in Resources */,
 				9AA0B414127AC6E6007A0377 /* LevelInfo.plist in Resources */,
+				22A0E6FE127AFA710016AEFB /* fire.plist in Resources */,
+				22A0E6FF127AFA710016AEFB /* fire.png in Resources */,
+				22A0E702127AFC210016AEFB /* frontBackground.png in Resources */,
 				9AA0B48C127AE436007A0377 /* bonus_life.png in Resources */,
 				9AA0B48D127AE436007A0377 /* bonus_speed.png in Resources */,
 				9AA0B48E127AE436007A0377 /* bonus_time.png in Resources */,
@@ -1621,13 +1668,16 @@
 				9AA0B2DE127A89AA007A0377 /* HUDLayer.m in Sources */,
 				9AA0B2E1127A89C6007A0377 /* CollectablesLayer.m in Sources */,
 				9AA0B2E4127A89E0007A0377 /* HeroLayer.m in Sources */,
-				9AA0B2E8127A8A2B007A0377 /* MenuLayer.mm in Sources */,
 				9AA0B321127A96D9007A0377 /* ScrollableLayer.m in Sources */,
 				9AA0B322127A96D9007A0377 /* AlertLayer.m in Sources */,
-				9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */,
 				9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */,
 				9AA0B4FF127AEF63007A0377 /* MyContactListener.mm in Sources */,
 				9A739D5D127B492C0074C7F0 /* OverlayLayer.m in Sources */,
+				2279B9A6127B403E00C540B2 /* AboutLayer.m in Sources */,
+				22142521127B407500B2A68E /* OptionLayer.m in Sources */,
+				22142524127B408700B2A68E /* HighScoreLayer.m in Sources */,
+				22142533127B414400B2A68E /* HelpLayer.m in Sources */,
+				22142536127B416800B2A68E /* MenuLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

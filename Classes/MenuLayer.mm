@@ -14,7 +14,11 @@
 #import "HUDLayer.h"
 #import "CollectablesLayer.h"
 #import "HeroLayer.h"
+#import "AboutLayer.h"
+#import "HelpLayer.h"
 #import "HelloWorldScene.h"
+#import "OptionLayer.h"
+#import "HighScoreLayer.h"
 
 @implementation MenuLayer
 //setup view for main menu
@@ -67,7 +71,6 @@
 		item4.scale = MENU_ITEM_SCALE_FACTOR;
 		item6.scale = MENU_ITEM_SCALE_FACTOR;
 		
-		
 		CCMenu *menu;
 
 		if(![[NSUserDefaults standardUserDefaults] dataForKey:@"GameModel"]){
@@ -80,7 +83,6 @@
 		[menu alignItemsVerticallyWithPadding:2.5];
 		[self addChild:menu z:0 tag:0];
 		
-
 		//if([GameResource sharedResource].isMusicOn && ![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying])
 //			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[GameResource sharedResource].themeSound];
 		
@@ -149,68 +151,63 @@
 - (void)onOptions:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *optionsScene = [CCScene node];
-//	OptionsLayer *optionsLayer = [OptionsLayer node];
-//	AnimatingBackground *background = [AnimatingBackground node];
-//	[optionsScene addChild:background z:0 tag:1];
-//	[optionsScene addChild:optionsLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:optionsScene];
+	CCScene *optionsScene = [CCScene node];
+	OptionLayer *optionsLayer = [OptionLayer node];
+	[optionsScene addChild:optionsLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:optionsScene];
 }
 
 //clicked on high score menu item. Shows highscore page.
 - (void)onHighScore:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *highScoreScene = [CCScene node];
-//	HighScoreLayer *highScoreLayer = [HighScoreLayer node];
-//	AnimatingBackground *background = [AnimatingBackground node];
-//	[highScoreScene addChild:background z:0 tag:1];
-//	[highScoreScene addChild:highScoreLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:highScoreScene];
+	CCScene *highScoreScene = [CCScene node];
+	HighScoreLayer *highScoreLayer = [HighScoreLayer node];
+	[highScoreScene addChild:highScoreLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:highScoreScene];
 }
 
 //clicked on help menu item. Shows help page.
 - (void)onHelp:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *helpScene = [CCScene node];
-//	HelpLayer *helpLayer = [HelpLayer node];
+	CCScene *helpScene = [CCScene node];
+	HelpLayer *helpLayer = [HelpLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];
 //	[helpScene addChild:background z:0 tag:1];
-//	[helpScene addChild:helpLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:helpScene];
+	[helpScene addChild:helpLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:helpScene];
 }
 
 //clicked on about menu item. Shows about page.
 - (void)onAbout:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	CCScene *aboutScene = [CCScene node];
-//	AboutLayer *aboutLayer = [AboutLayer node];
+	CCScene *aboutScene = [CCScene node];
+	AboutLayer *aboutLayer = [AboutLayer node];
 //	AnimatingBackground *background = [AnimatingBackground node];
 //	[aboutScene addChild:background z:0 tag:1];
-//	[aboutScene addChild:aboutLayer z:0 tag:0];
-//	[[CCDirector sharedDirector] replaceScene:aboutScene];
+	[aboutScene addChild:aboutLayer z:0 tag:0];
+	[[CCDirector sharedDirector] replaceScene:aboutScene];
 }
 
 //confirmation delegate
 - (void)optionSelected:(id)sender{
 //	if([GameResource sharedResource].isEffectOn)
 //		[[SimpleAudioEngine sharedEngine] playEffect:[GameResource sharedResource].clickSound];
-//	NSInteger choice = [(NSNumber *)sender intValue];
-//	switch (choice) {
-//		case 0:
-//			[self play];
-//			break;
-//		case 1:
-//			[(CCLayer *)[self getChildByTag:0] setIsTouchEnabled:YES];
-//			[(CCLayer *)[self getChildByTag:0] setVisible:YES];
-//			[self.parent removeChildByTag:1 cleanup:YES];
-//			break;
-//		default:
-//			break;
-//	}
-	
+	NSInteger choice = [(NSNumber *)sender intValue];
+	switch (choice) {
+		case 0:
+			[self play];
+			break;
+		case 1:
+			[(CCLayer *)[self getChildByTag:0] setIsTouchEnabled:YES];
+			[(CCLayer *)[self getChildByTag:0] setVisible:YES];
+			[self.parent removeChildByTag:1 cleanup:YES];
+			break;
+		default:
+			break;
+	}
 }
 
 
