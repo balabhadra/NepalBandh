@@ -9,6 +9,10 @@
 
 // Import the interfaces
 #import "HelloWorldScene.h"
+#import "OverlayLayer.h"
+#import "BackgroundLayer.h"
+#import "HouseLayer.h"
+#import	"HUDLayer.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -108,12 +112,81 @@ enum {
 		[self schedule: @selector(tick:)];
 		[self schedule: @selector(spawnObjects:) interval:0.5f];
 		[NSTimer scheduledTimerWithTimeInterval:game.levelDuration target:self selector:@selector(levelComplete) userInfo:nil repeats:NO];
+		
+		//Protagonist
+		
+		CCSprite *sprite = [CCSprite spriteWithFile:@"skate-boy.png"];
+		sprite.position = ccp(96, 52);
+		
+		[self addChild:sprite z:1 tag:kTagActor];
+		
+		b2BodyDef spriteBodyDef;
+		spriteBodyDef.type = b2_dynamicBody;
+		spriteBodyDef.position.Set(sprite.position.x/PTM_RATIO, sprite.position.y/PTM_RATIO);
+		spriteBodyDef.userData = sprite;
+		b2Body *spriteBody = world->CreateBody(&spriteBodyDef);
+		
+		b2PolygonShape spriteShape;
+		NSInteger num = 5;
+		b2Vec2 verts[] = {b2Vec2(38.0f / PTM_RATIO, -39.0f / PTM_RATIO),
+			b2Vec2(7.0f / PTM_RATIO, 46.0f / PTM_RATIO),
+			b2Vec2(-15.0f / PTM_RATIO, 44.0f / PTM_RATIO),
+			b2Vec2(-41.0f / PTM_RATIO, -28.0f / PTM_RATIO),
+			b2Vec2(24.0f / PTM_RATIO, -45.0f / PTM_RATIO)};
+		spriteShape.Set(verts, num);
+		b2FixtureDef spriteShapeDef;
+		spriteShapeDef.shape = &spriteShape;
+		spriteShapeDef.density = 10.0;
+		spriteShapeDef.isSensor = true;
+		
+		spriteBody->CreateFixture(&spriteShapeDef);
+			
 	}
 	return self;
 }
 
 -(void)levelComplete{
+	levelCompleted = YES;
+	for(CCSprite * spr in [[self.parent getChildByTag:1] children]){
+		[spr stopAllActions];
+	}
 	
+	for(CCSprite * spr in [self children]){
+		[spr stopAllActions];
+	}
+	[self unschedule:@selector(tick:)];
+	[self unschedule:@selector(spawnObjects:)];
+	CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Level Completed"] fontName:@"Marker Felt" fontSize:40];
+	label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 30);
+	CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"(TAP to continue)" fontName:@"Marker Felt" fontSize:34];
+	label2.position = ccp(self.contentSize.width/2, self.contentSize.height/2 - 30);
+	
+	CCNode *node = [OverlayLayer node];
+	[node addChild:label1];
+	[node addChild:label2];
+	[self addChild:node];
+}
+
+-(void)addBoxBodyForCollectable:(CCSprite *)sprite{
+	// Define the dynamic body.
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	
+	bodyDef.position.Set(sprite.position.x/PTM_RATIO, sprite.position.y/PTM_RATIO);
+	bodyDef.userData = sprite;
+	b2Body *body = world->CreateBody(&bodyDef);
+	
+	b2CircleShape circle;
+	circle.m_radius = COLLECTABLE_RADIUS/PTM_RATIO;
+	
+	// Create shape definition and add to body
+	b2FixtureDef ballShapeDef;
+	ballShapeDef.shape = &circle;
+	ballShapeDef.density = 0.0f;
+	ballShapeDef.friction = 0.8f; 
+	ballShapeDef.restitution = 0.25f;
+	// Define the dynamic body fixture.
+	body->CreateFixture(&ballShapeDef);
 }
 
 - (BOOL)spawnCollectable {
@@ -142,11 +215,54 @@ enum {
     CCSprite *collectableSprite = [CCSprite spriteWithFile:spriteName];
     collectableSprite.position = ccp(550, 220);
     collectableSprite.tag = sprite_tag;
+	
+	id action = [CCSequence actions: [CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-24,220)], 
+				 [CCCallFuncN actionWithTarget:self selector:@selector(spriteDone:)],nil];
 
-    [collectableSprite runAction:[CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-24,220)]]; 
- //   [self addBoxBodyForSprite:car];
+    [collectableSprite runAction:action]; 
+	[self addBoxBodyForCollectable:collectableSprite];
     [self addChild:collectableSprite z:0 tag:sprite_tag];
     return YES;
+}
+
+-(void)addBoxBodyForEnemy:(CCSprite *)sprite{
+	b2BodyDef spriteBodyDef;
+    spriteBodyDef.type = b2_dynamicBody;
+    spriteBodyDef.position.Set(sprite.position.x/PTM_RATIO, sprite.position.y/PTM_RATIO);
+    spriteBodyDef.userData = sprite;
+    b2Body *spriteBody = world->CreateBody(&spriteBodyDef);
+
+    if (sprite.tag == kTagStone) {
+		b2PolygonShape spriteShape;
+		NSInteger num = 6;
+		b2Vec2 verts[] = {b2Vec2(59.0f / PTM_RATIO, -30.0f / PTM_RATIO),
+			b2Vec2(60.0f / PTM_RATIO, -29.0f / PTM_RATIO),
+			b2Vec2(17.0f / PTM_RATIO, 21.0f / PTM_RATIO),
+			b2Vec2(-28.0f / PTM_RATIO, 23.0f / PTM_RATIO),
+			b2Vec2(-51.0f / PTM_RATIO, 13.0f / PTM_RATIO),
+			b2Vec2(-51.0f / PTM_RATIO, -30.0f / PTM_RATIO)};
+		spriteShape.Set(verts, num);
+		
+		b2FixtureDef spriteShapeDef;
+		spriteShapeDef.shape = &spriteShape;
+		spriteShapeDef.density = 10.0;
+		spriteShapeDef.isSensor = true;
+		
+		spriteBody->CreateFixture(&spriteShapeDef);
+		return;
+    } 
+	else if(sprite.tag == kTagThorn) {
+      
+    }
+	else if(sprite.tag == kTagTyre) {
+        
+    }
+	else if(sprite.tag == kTagFire){
+		
+	}
+	else if(sprite.tag == kTagBrick){
+		
+	}
 }
 
 - (BOOL)spawnMovingEnemy {
@@ -154,33 +270,56 @@ enum {
 }
 
 - (BOOL)spawnStaticEnemy {
-  //  NSString *spriteName;
-//	NSInteger sprite_tag;
-//	switch ([game getStaticEnemyType]) {
-//		case EnemyStone:
-//			spriteName = @"enemy_stone.png";
-//			sprite_tag = kTagStone; 
-//			break;
-//		case EnemyThorn:
-//			spriteName = @"enemy_thorn.png";
-//			sprite_tag = kTagThorn;
-//			break;
-//		case EnemyFire:
-//			spriteName = @"enemy_fire.png";
-//			sprite_tag = kTagFire; 
-//			break;
-//		default:
-//			return NO;
-//	}
-//    CCSprite *enemySprite = [CCSprite spriteWithFile:spriteName];
-//    enemySprite.position = ccp(550, 52);
-//    enemySprite.tag = sprite_tag;
-//	
-//    [enemySprite runAction:[CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-24,220)]]; 
-//	//   [self addBoxBodyForSprite:car];
-//    [self addChild:enemySprite z:0 tag:sprite_tag];
-//    return YES;
-	return NO;
+    NSString *spriteName;
+	NSInteger sprite_tag;
+	switch ([game getStaticEnemyType]) {
+		case EnemyStone:
+			spriteName = @"enemy_stone.png";
+			sprite_tag = kTagStone; 
+			break;
+		case EnemyThorn:
+			spriteName = @"enemy_stone.png";
+			sprite_tag = kTagStone; 
+			//spriteName = @"enemy_thorn.png";
+			//sprite_tag = kTagThorn;
+			break;
+		case EnemyFire:
+			spriteName = @"enemy_stone.png";
+			sprite_tag = kTagStone; 
+			//spriteName = @"enemy_fire.png";
+			//sprite_tag = kTagFire; 
+			break;
+		default:
+			return NO;
+	}
+    CCSprite *enemySprite = [CCSprite spriteWithFile:spriteName];
+    enemySprite.position = ccp(550, 52);
+    enemySprite.tag = sprite_tag;
+	
+	id action = [CCSequence actions: [CCMoveTo actionWithDuration:(1.0f/game.speed)*150 position:ccp(-64,52)], 
+				 [CCCallFuncN actionWithTarget:self selector:@selector(spriteDone:)],nil];
+    [enemySprite runAction:action]; 
+	[self addBoxBodyForEnemy:enemySprite];
+    [self addChild:enemySprite z:0 tag:sprite_tag];
+    return YES;
+}
+
+-(void) spriteDone:(id)sender{
+	CCSprite *sprite = (CCSprite *)sender;
+	b2Body *body;
+	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
+	{
+		if (b->GetUserData() != NULL) {
+			//Synchronize the AtlasSprites position and rotation with the corresponding body
+			CCSprite *myActor = (CCSprite*)b->GetUserData();
+			if (myActor == sprite) {
+				body = b;
+			}
+		}	
+	}
+	world -> DestroyBody(body);
+	NSLog(@"body destroyed");
+	[self removeChild:sprite cleanup:YES];
 }
 
 -(void)collectableSpawnExpired{
@@ -272,6 +411,7 @@ enum {
 	
 	// Loop through all of the box2d bodies that are currently colliding, that we have
     // gathered with our custom contact listener...
+	std::vector<b2Body *>toDestroy;
     std::vector<MyContact>::iterator pos;
     for(pos = _contactListener->_contacts.begin(); pos != _contactListener->_contacts.end(); ++pos) {
         MyContact contact = *pos;
@@ -283,12 +423,42 @@ enum {
             CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
             CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
             
-            // Is sprite A a cat and sprite B a car?  If so, push the cat on a list to be destroyed...
-            if (spriteA.tag == 1 || spriteB.tag == 1) {
-                //Meaningful Collision
-				NSLog(@"collision");
+            CCSprite *collisionSprite;
+            if (spriteA.tag == 1) {
+				collisionSprite = spriteB;
             } 
-        }        
+			else if(spriteB.tag == 1){
+				collisionSprite = spriteA;
+			}
+			
+			if (collisionSprite.tag >=200) {
+				NSLog(@"Bad collision");
+			}
+			else if (collisionSprite.tag >=100){
+				NSLog(@"Good collision");
+				//toDestroy.push_back(bodyA);
+			}  
+		}
+    }
+	
+	// Loop through all of the box2d bodies we wnat to destroy...
+    std::vector<b2Body *>::iterator pos2;
+    for(pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
+        b2Body *body = *pos2;     
+        
+        // See if there's any user data attached to the Box2D body
+        if (body->GetUserData() != NULL) {
+            
+            // We know that the user data is a sprite since we set
+            // it that way, so cast it...
+            CCSprite *sprite = (CCSprite *) body->GetUserData();
+            
+            // Remove the sprite from the scene
+            [self removeChild:sprite cleanup:YES];
+        }
+        
+        // Destroy the Box2D body as well
+        world->DestroyBody(body);
     }
 	
 }
@@ -312,6 +482,9 @@ enum {
 				//jump
 				NSLog(@"jump");
 				game.playerStatus = PlayerStatusJumping;
+				CCSprite *actor = (CCSprite *)[self getChildByTag:kTagActor];
+				id action = [CCJumpBy actionWithDuration:2 position:ccp(0,0) height:200 jumps:1];
+				[actor runAction:action];
 			}
 			else {
 				if(game.playerStatus != PlayerStatusDucking){
@@ -326,7 +499,22 @@ enum {
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-	
+	if(levelCompleted){
+		[game nextLevel];
+		self.isTouchEnabled = NO;
+		CCScene *playScene = [CCScene node];
+		BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+		HouseLayer *houseLayer = [HouseLayer node];
+		HUDLayer *hudLayer = [HUDLayer node];
+		HelloWorld *gameLayer = [HelloWorld node];
+		
+		[playScene addChild:backgroundLayer z:0 tag:0];
+		[playScene addChild:houseLayer z:1 tag:1];
+		[playScene addChild:gameLayer z:2 tag:2];
+		[playScene addChild:hudLayer z:3 tag:3];
+		
+		[[CCDirector sharedDirector] replaceScene:playScene];
+	}
 }
 
 

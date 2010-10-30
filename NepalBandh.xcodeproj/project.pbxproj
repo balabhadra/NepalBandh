@@ -142,6 +142,7 @@
 		50F4144810692EE7002A0D5E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144310692EE7002A0D5E /* blocks.png */; };
 		50F4144910692EE7002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144410692EE7002A0D5E /* Default.png */; };
 		50F4144A10692EE7002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144510692EE7002A0D5E /* fps_images.png */; };
+		9A739D5D127B492C0074C7F0 /* OverlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A739D5C127B492C0074C7F0 /* OverlayLayer.m */; };
 		9AA0B2D1127A87E3007A0377 /* home_town.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2CE127A87E3007A0377 /* home_town.png */; };
 		9AA0B2D2127A87E3007A0377 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2CF127A87E3007A0377 /* Background.png */; };
 		9AA0B2D3127A87E3007A0377 /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B2D0127A87E3007A0377 /* hud.png */; };
@@ -168,6 +169,8 @@
 		9AA0B48E127AE436007A0377 /* bonus_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B48B127AE436007A0377 /* bonus_time.png */; };
 		9AA0B491127AE459007A0377 /* bonus_shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B490127AE459007A0377 /* bonus_shield.png */; };
 		9AA0B4FF127AEF63007A0377 /* MyContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0B4FE127AEF63007A0377 /* MyContactListener.mm */; };
+		9AA0B635127B2EC7007A0377 /* enemy_stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B633127B2EC7007A0377 /* enemy_stone.png */; };
+		9AA0B636127B2EC7007A0377 /* skate-boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0B634127B2EC7007A0377 /* skate-boy.png */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -492,6 +495,8 @@
 		50F4144410692EE7002A0D5E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		50F4144510692EE7002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F4144710692EE7002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A739D5B127B492C0074C7F0 /* OverlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayLayer.h; sourceTree = "<group>"; };
+		9A739D5C127B492C0074C7F0 /* OverlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayLayer.m; sourceTree = "<group>"; };
 		9AA0B2CE127A87E3007A0377 /* home_town.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_town.png; sourceTree = "<group>"; };
 		9AA0B2CF127A87E3007A0377 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		9AA0B2D0127A87E3007A0377 /* hud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud.png; sourceTree = "<group>"; };
@@ -529,6 +534,8 @@
 		9AA0B490127AE459007A0377 /* bonus_shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_shield.png; sourceTree = "<group>"; };
 		9AA0B4FD127AEF63007A0377 /* MyContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContactListener.h; sourceTree = "<group>"; };
 		9AA0B4FE127AEF63007A0377 /* MyContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyContactListener.mm; sourceTree = "<group>"; };
+		9AA0B633127B2EC7007A0377 /* enemy_stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_stone.png; sourceTree = "<group>"; };
+		9AA0B634127B2EC7007A0377 /* skate-boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skate-boy.png"; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -768,6 +775,8 @@
 		22A0E420127AA1940016AEFB /* GameView */ = {
 			isa = PBXGroup;
 			children = (
+				9AA0B633127B2EC7007A0377 /* enemy_stone.png */,
+				9AA0B634127B2EC7007A0377 /* skate-boy.png */,
 				9AA0B490127AE459007A0377 /* bonus_shield.png */,
 				9AA0B489127AE436007A0377 /* bonus_life.png */,
 				9AA0B48A127AE436007A0377 /* bonus_speed.png */,
@@ -1122,6 +1131,8 @@
 		9AA0B2E9127A8A30007A0377 /* Other Layers */ = {
 			isa = PBXGroup;
 			children = (
+				9A739D5B127B492C0074C7F0 /* OverlayLayer.h */,
+				9A739D5C127B492C0074C7F0 /* OverlayLayer.m */,
 				9AA0B31D127A96D9007A0377 /* ScrollableLayer.h */,
 				9AA0B31E127A96D9007A0377 /* ScrollableLayer.m */,
 				9AA0B31F127A96D9007A0377 /* AlertLayer.h */,
@@ -1588,6 +1599,8 @@
 				9AA0B48D127AE436007A0377 /* bonus_speed.png in Resources */,
 				9AA0B48E127AE436007A0377 /* bonus_time.png in Resources */,
 				9AA0B491127AE459007A0377 /* bonus_shield.png in Resources */,
+				9AA0B635127B2EC7007A0377 /* enemy_stone.png in Resources */,
+				9AA0B636127B2EC7007A0377 /* skate-boy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1614,6 +1627,7 @@
 				9AA0B386127A9D4B007A0377 /* AboutLayer.m in Sources */,
 				9AA0B3FB127ABEE5007A0377 /* GameModel.m in Sources */,
 				9AA0B4FF127AEF63007A0377 /* MyContactListener.mm in Sources */,
+				9A739D5D127B492C0074C7F0 /* OverlayLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

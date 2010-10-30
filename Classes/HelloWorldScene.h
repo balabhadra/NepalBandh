@@ -15,7 +15,8 @@
 #import "GameModel.h"
 #import "NepalBandhAppDelegate.h"
 
-#define SWIPE_DRAG_MIN 20
+#define SWIPE_DRAG_MIN			20
+#define COLLECTABLE_RADIUS		20
 
 // HelloWorld Layer
 @interface HelloWorld : CCLayer
@@ -28,6 +29,7 @@
 	BOOL recentCollectableSpawn;
 	BOOL recentStaticEnemySpawn;
 	BOOL recentMovingEnemySpawn;
+	BOOL levelCompleted;
 }
 
 

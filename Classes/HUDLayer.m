@@ -9,7 +9,8 @@
 #import "HUDLayer.h"
 #import "AlertLayer.h"
 #import "MenuLayer.h"
-
+#import "NepalBandhAppDelegate.h"
+#import "GameModel.h"
 
 @implementation HUDLayer
 
@@ -19,8 +20,8 @@
 
 - (id)init	{
 	if ( (self = [super	init]) ) {
-		
-		livesValue = 1;
+		GameModel *game = [(NepalBandhAppDelegate *)[[UIApplication sharedApplication] delegate] game];
+		livesValue = game.lives;
 		
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		
@@ -35,12 +36,12 @@
 			[self addChild:heart z:1 tag:i+1];
 		}
 		
-		gameLevel = [CCLabelTTF labelWithString:@"0"  
+		gameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", game.level]  
 							  dimensions:CGSizeMake(20, 20) 
 							   alignment:UITextAlignmentRight 
 								fontName:@"Trebuchet MS" fontSize:18.0];
 		
-		score = [CCLabelTTF labelWithString:@"0"  
+		score = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", game.score]  
 									 dimensions:CGSizeMake(20, 20) 
 									  alignment:UITextAlignmentRight 
 									   fontName:@"Trebuchet MS" fontSize:18.0];

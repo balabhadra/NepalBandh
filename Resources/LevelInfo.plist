@@ -5,13 +5,13 @@
 	<key>1 - 1</key>
 	<dict>
 		<key>Duration</key>
-		<integer>60</integer>
+		<integer>15</integer>
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
 		<real>0.1</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.2</real>
+		<real>0.15</real>
 		<key>Speed</key>
 		<integer>10</integer>
 	</dict>
@@ -22,9 +22,9 @@
 		<key>MovingEnemyGenerationProbability</key>
 		<integer>0</integer>
 		<key>CollectableGenerationProbability</key>
-		<real>0.12</real>
+		<real>0.11</real>
 		<key>StaticEnemyGenerationProbability</key>
-		<real>0.22</real>
+		<real>0.15</real>
 		<key>Speed</key>
 		<integer>13</integer>
 	</dict>

@@ -94,14 +94,10 @@
 	BackgroundLayer *backgroundLayer = [BackgroundLayer node];
 	HouseLayer *houseLayer = [HouseLayer node];
 	HUDLayer *hudLayer = [HUDLayer node];
-//	CollectablesLayer *collectablesLayer = [CollectablesLayer node];
-//	HeroLayer *heroLayer = [HeroLayer node];
 	HelloWorld *gameLayer = [HelloWorld node];
 
 	[playScene addChild:backgroundLayer z:0 tag:0];
 	[playScene addChild:houseLayer z:1 tag:1];
-//	[playScene addChild:collectablesLayer z:2 tag:2];
-//	[playScene addChild:heroLayer z:3 tag:3];
 	[playScene addChild:gameLayer z:2 tag:2];
 	[playScene addChild:hudLayer z:3 tag:3];
 	
