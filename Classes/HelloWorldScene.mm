@@ -179,7 +179,7 @@ enum {
 		[self schedule: @selector(tick:)];
 		[self schedule: @selector(spawnObjects:) interval:0.5f];
 		[self schedule: @selector(increaseScore:) interval:0.2f];
-		[NSTimer scheduledTimerWithTimeInterval:game.levelDuration target:self selector:@selector(levelComplete) userInfo:nil repeats:NO];
+		levelCompleteTimer = [[NSTimer scheduledTimerWithTimeInterval:game.levelDuration target:self selector:@selector(levelComplete) userInfo:nil repeats:NO] retain];
 		
 		//Protagonist
 		
@@ -587,6 +587,7 @@ enum {
 						[self unschedule:@selector(tick:)];
 						[self unschedule:@selector(spawnObjects:)];
 						[self unschedule:@selector(increaseScore:)];
+						[levelCompleteTimer invalidate];
 						CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat: @"Game Over"] fontName:@"Marker Felt" fontSize:40];
 						label1.position = ccp(self.contentSize.width/2, self.contentSize.height/2 + 30);
 						CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"(TAP to continue)" fontName:@"Marker Felt" fontSize:34];
@@ -658,7 +659,7 @@ enum {
 						emitter.texture = [[CCTextureCache sharedTextureCache] addImage: @"fire-grayscale.png"];
 						emitter.position = ccp(spr.contentSize.width/2,spr.contentSize.height/2);
 						emitter.life = 2;
-						emitter.duration = 4;
+						emitter.duration = 2;
 					}
 					[self makeInvulnerable];
 				}

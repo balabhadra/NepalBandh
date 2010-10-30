@@ -41,6 +41,7 @@
 	BOOL invulnerable;
 	BOOL gameOver;
 	NSTimer *invulnerableTimer;
+	NSTimer *levelCompleteTimer;
 }
 
 @property (nonatomic, retain) NSTimer *invulnerableTimer; 
