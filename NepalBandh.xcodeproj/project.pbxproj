@@ -558,8 +558,6 @@
 		9AA0B2E0127A89C6007A0377 /* CollectablesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectablesLayer.m; sourceTree = "<group>"; };
 		9AA0B2E2127A89E0007A0377 /* HeroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroLayer.h; sourceTree = "<group>"; };
 		9AA0B2E3127A89E0007A0377 /* HeroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroLayer.m; sourceTree = "<group>"; };
-		9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuLayer.h; path = /Users/sts101/Desktop/NepalBandh/Classes/MenuLayer.h; sourceTree = "<absolute>"; };
-		9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuLayer.mm; path = /Users/sts101/Desktop/NepalBandh/Classes/MenuLayer.mm; sourceTree = "<absolute>"; };
 		9AA0B310127A91D7007A0377 /* menuSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuSelected.png; sourceTree = "<group>"; };
 		9AA0B311127A91D7007A0377 /* menuSelected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuSelected.plist; sourceTree = "<group>"; };
 		9AA0B312127A91D7007A0377 /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -906,8 +904,6 @@
 		22A0E84C127B0DE00016AEFB /* Menu Layers */ = {
 			isa = PBXGroup;
 			children = (
-				9AA0B2E6127A8A2B007A0377 /* MenuLayer.h */,
-				9AA0B2E7127A8A2B007A0377 /* MenuLayer.mm */,
 			);
 			name = "Menu Layers";
 			sourceTree = "<group>";

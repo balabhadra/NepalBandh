@@ -1,6 +1,5 @@
 //
 //  ScrollableLayer.h
-//  AbyssIphone
 //
 //  Created by Bala Bhadra Maharjan on 4/30/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
